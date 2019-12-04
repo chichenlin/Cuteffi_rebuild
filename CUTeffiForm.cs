@@ -24,6 +24,7 @@ namespace Cuteffi_rebuild
         public static int varNtest = 12;
         public static double threshold;
         public static double[] A = new double[4];
+        int monitoropen = 0;
         
 
         
@@ -37,11 +38,23 @@ namespace Cuteffi_rebuild
 
         private void monitorbutton_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
-            panel6.Visible = false;
-            panel4.Visible = false;
-            panel10.Visible = false;
-            panelSetting.Visible = false;
+            //panel6.Visible = false;
+            //panel4.Visible = false;
+            //panel10.Visible = false;
+            //panelSetting.Visible = false;
+            if (monitoropen == 0)
+            {
+                panel1.Visible = true;
+                this.Size = new Size(1510, 600);
+                panel1.Location = new Point(782,75);
+                monitoropen = 1;
+            }
+            else 
+            {
+                panel1.Visible = false;
+                this.Size = new Size(795, 600);
+                monitoropen = 0;
+            }
         }
 
         private void drillingmodebutton_Click(object sender, EventArgs e)
