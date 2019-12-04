@@ -16,7 +16,7 @@ namespace Cuteffi_rebuild
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CUTeffiForm());
+            Application.Run(new SplashScreen());
         }
     }
 }

@@ -24,73 +24,49 @@ namespace Cuteffi_rebuild
         public static int varNtest = 12;
         public static double threshold;
         public static double[] A = new double[4];
-        niDAQ nidaq = new niDAQ();
+        
+
+        
         public CUTeffiForm()
         {
             InitializeComponent();
             this.Size = new Size(795, 600);
-            signalplotchart.Visible = false;
-            aGauge1.Visible = true;
-            Displaymodebutton.Visible = true;
-            Displaymodebutton2.Visible = false;
-            panel1.Visible = true;
+            panel1.Visible = false;
             initialCUTeffi();
         }
 
-        private void Displaymodebutton_Click(object sender, EventArgs e)
-        {
-            signalplotchart.Visible = true;
-            aGauge1.Visible = false;
-            textBox14.Visible = false;
-            Displaymodebutton.Visible = false;
-            Displaymodebutton2.Visible = true;
-        }
-
-        private void Displaymodebutton2_Click(object sender, EventArgs e)
-        {
-            signalplotchart.Visible = false;
-            aGauge1.Visible = true;
-            textBox14.Visible = true;
-            Displaymodebutton.Visible = true;
-            Displaymodebutton2.Visible = false;
-            
-
-        }
-
-        private void testingmodebutton_Click(object sender, EventArgs e)
-        {
-            panel6.Location = new Point(0,75);
-            panel6.Visible = true;
-            panelSetting.Location = new Point(322, 75);
-            panelSetting.Visible = true;
-            panel1.Visible = false;
-
-        }
-
-        private void monitormodebutton_Click(object sender, EventArgs e)
+        private void monitorbutton_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
             panel6.Visible = false;
+            panel4.Visible = false;
+            panel10.Visible = false;
             panelSetting.Visible = false;
         }
 
-        private void settingbutton_Click(object sender, EventArgs e)
+        private void drillingmodebutton_Click(object sender, EventArgs e)
         {
+            panel10.Visible = true;
             panel4.Visible = true;
-            panel4.Location = new Point(0, 75);            
+            panelSetting.Visible = false;
             panel1.Visible = false;
-            backbutton.Location = new Point(11, 220);
-            backbutton.BringToFront();
-            backbutton.Visible = true;
+            panel6.Visible = false;
+            panel4.Location = new Point(353, 75);
+            panel10.Location = new Point(0, 75);
+
         }
 
-        private void backbutton_Click(object sender, EventArgs e)
+        private void millingmodebutton_Click(object sender, EventArgs e)
         {
+            panel6.Location = new Point(0,75);
+            panel6.Visible = true;
+            panelSetting.Location = new Point(353, 75);
+            panelSetting.Visible = true;
+            panel1.Visible = false;
             panel4.Visible = false;
-            panel1.Visible = true;
-            backbutton.Visible = false;
+            panel10.Visible = false;
         }
-
+                
         private void initialCUTeffi()
         {
             indexProgramState = 0;
@@ -109,9 +85,8 @@ namespace Cuteffi_rebuild
             label28.Text = " ";
 
             buttonStop.Visible = false;
-            nidaq.StartDAQ(10000);
             Thread.Sleep(2000);
-            nidaq.StopDAQ();
+
 
             indexProgramState = 2;
             statepanel(indexProgramState);
@@ -136,19 +111,19 @@ namespace Cuteffi_rebuild
             }
         }
 
-        private void buttonTest_Click(object sender, EventArgs e)
+        private void buttonStart_Click(object sender, EventArgs e)
         {
-            buttonTest.Visible = false;
+            buttonStart.Visible = false;
             buttonStop.Visible = true;
-
             indexProgramState = 1;
             statepanel(indexProgramState);
             Refresh();
 
             OperatingSPmax = Convert.ToDouble(textBox4.Text);
-            threshold = Convert.ToDouble(textBox15.Text);
+            //threshold = Convert.ToDouble(textBox15.Text);
 
-            nidaq.StartDAQ(OperatingSPmax);
+            
+
         }
 
         private void checkBox1_Click(object sender, EventArgs e)
@@ -255,7 +230,18 @@ namespace Cuteffi_rebuild
             FSS.Hide();
         }
 
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            buttonStart.Visible = true;
+            buttonStop.Visible = false;
+            indexProgramState = 2;
+            statepanel(indexProgramState);
+            Refresh();
+        }
 
+        
+
+        ///
         public void panelupdate(double[] A)
         {
 
@@ -273,21 +259,61 @@ namespace Cuteffi_rebuild
 
             indexProgramState = 2;
             statepanel(indexProgramState);
-            buttonTest.Visible = true;
+            buttonStart.Visible = true;
             buttonStop.Visible = false;
             Refresh();
         }
 
-        private void buttonStop_Click(object sender, EventArgs e)
+
+       /*
+        private void vibrationmonitor()
         {
-            nidaq.StopDAQ();
-            buttonTest.Visible = true;
-            buttonStop.Visible = false;
-            indexProgramState = 2;
-            statepanel(indexProgramState);
-            Refresh();
+                allrms0 = new double[d00.Length];
+                for (int i = 0; i < d00.Length; i++)
+                {
+                   allrms0[i] = Math.Sqrt(Math.Pow(d00[i], 2) + Math.Pow(d10[i], 2) + Math.Pow(d20[i], 2));
+                }
+                allrms1 = rootMeanSquare(allrms0);
+                ///監控示波器
+                if (indexplot > time.Length)
+                {
+                    for (int i = 0; i < time.Length-1; i++)
+                    {
+                        time[i] = time[i + 1];
+                        plotrms[i] = plotrms[i + 1];
+                        
+                    }
+                    time[time.Length - 1] = time[time.Length - 1] + Convert.ToDouble(samplepoint.Text) / 12800;
+                    plotrms[time.Length - 1] = allrms1;
+                }
+                else
+                {
+                    time[0] = starttime;
+                    for (int i = 1; i < time.Length; i++)//time.Length
+                    {
+                        time[i] = starttime + Convert.ToDouble(samplepoint.Text) / 12800 * i;
+                    }
+                    plotrms[indexplot] = allrms1;
+                }
+                ///
+                indexplot++;
+                maxrms[1] = allrms1;
+                if (maxrms[0] < maxrms[1])
+                {
+                    maxrms[0] = maxrms[1];
+                }
+
+                time_chart.Series[0].Points.Clear();
+                time_chart.Series[1].Points.Clear();
+            for (int i = 0; i < time.Length; i++)
+            {
+                vibration_monitor.Series[0].Points.AddXY(time[i],maxrms[0]);
+                vibration_monitor.Series[0].Points.AddXY(time[i],plotrms[i]);
+            }
         }
+        */
+
     }
 
-    
+
 }
