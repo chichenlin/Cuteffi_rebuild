@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditNC.cs" />
     <Compile Include="nidaqAPI.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -114,6 +115,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\icon_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\image_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\image_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\image_yellowlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\icon_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\icon_export4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

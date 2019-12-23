@@ -34,11 +34,21 @@ namespace Cuteffi_rebuild
         double SPmax;
         int iii;
         public double rms_vibration;
+        public double[] maxrms = new double[2] { 0, 0 };
+        public double[] allrms0 = new double[1280];//
+        public double[] plotrms = new double[1280];
+        public double[] MSE = new double[1280];
+        public double allrms1;
+        int indexplot, scale = 1;
+        public double[] time = new double[100];
+        public double starttime, warning, alarm;
+        public double[] vecSP = new double[14];
 
         public StreamWriter SW_RMSData;
         public StreamWriter SW_State;
         public StreamWriter SW_State2;
         public StreamWriter SW_RawData;
+        
 
         [STAThread]
         public void StartDAQ(double a)
@@ -58,11 +68,7 @@ namespace Cuteffi_rebuild
             double Vmax = 5;
             double sen = 100;
             double EVN = 0.004;
-            double[] chan = new double[4] { 1, 1, 0, 0 };
-            ////
-            indexP = 0;
-            iii = 0;
-            ////
+            double[] chan = new double[4] { 1, 1, 1, 0 };
 
             SW_RMSData = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\RMSData.txt");
             SW_State = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\State.txt");
@@ -107,11 +113,12 @@ namespace Cuteffi_rebuild
 
             runningTask = null;
             myTask.Dispose();
-
-            ////
-            //indexP = 0;
-            //iii = 0;
-            ////
+            maxrms[0] = 0;
+            plotrms = new double[plotrms.Length];
+            MSE = new double[MSE.Length];
+            indexP = 0;
+            indexplot = 0;
+           
         }
 
 
@@ -128,15 +135,18 @@ namespace Cuteffi_rebuild
 
                 double[] d00 = data[0].GetRawData();
                 double[] d10 = data[1].GetRawData();
+                double[] d20 = data[2].GetRawData();
                 PrecisionDateTime[] T = data[0].GetPrecisionTimeStamps();
 
                 double[] d0 = new double[d00.Length];
                 double[] d1 = new double[d10.Length];
+                double[] d2 = new double[d20.Length];
 
                 for (int i = 0; i < d0.Length; i++)//去趨勢
                 {
                     d0[i] = (d00[i] - d00.Average());
                     d1[i] = (d10[i] - d10.Average());
+                    d2[i] = (d20[i] - d20.Average());
                 }
 
                 for (int i = 0; i < data[0].SampleCount; i++)
@@ -147,20 +157,144 @@ namespace Cuteffi_rebuild
 
                 int indexMaterial = CUTeffiForm.indexMaterial;
 
-                double rms_xdata = rootMeanSquare(d0);
-                double rms_ydata = rootMeanSquare(d1);
-                rms_vibration = Math.Sqrt(Math.Pow(rms_xdata, 2) + Math.Pow(rms_ydata, 2));
-
-                //CUTeffiForm.RMStextbox.Text = "" + rms_vibration;//及時RMS
-                double[] d = new double[d0.Length];
+                ////////
+                ////////////////////////
+                ///振動監控  
+                allrms0 = new double[d0.Length];
                 for (int i = 0; i < d0.Length; i++)
                 {
-                    d[i] = Math.Pow(d0[i], 2) + Math.Pow(d1[i], 2);
+                    allrms0[i] = Math.Sqrt(Math.Pow(d0[i], 2) + Math.Pow(d1[i], 2) + Math.Pow(d2[i], 2));
                 }
-                double entropy = Statistics.Entropy(d); //????
-                //CUTeffiForm.entropytextbox.Text = "" + entropy;
-                //Console.WriteLine("entropy is " + entropy);
+                allrms1 = rootMeanSquare(allrms0);
+                //double[] allentropy = new double[scale];
+                //allentropy = MultiScale_Entropy.MultiScaleEn3(allrms0, scale);
 
+                ///監控示波器
+                if (indexplot > time.Length)
+                {
+                    for (int i = 0; i < time.Length - 1; i++)
+                    {
+                        time[i] = time[i + 1];
+                        plotrms[i] = plotrms[i + 1];
+                        //MSE[i] = MSE[i + 1];
+                    }
+                    time[time.Length - 1] = time[time.Length - 1] + Convert.ToDouble(1280) / 12800;
+                    plotrms[time.Length - 1] = allrms1;
+                    //MSE[time.Length - 1] = allentropy[0];
+                }
+                else
+                {
+                    time[0] = starttime;
+                    for (int i = 1; i < time.Length; i++)//time.Length
+                    {
+                        time[i] = starttime + Convert.ToDouble(1280) / 12800 * i;
+                    }
+                    plotrms[indexplot] = allrms1;
+                    //MSE[indexplot] = allentropy[0];
+                }
+                ///
+                indexplot++;
+                maxrms[1] = allrms1;
+                if (maxrms[0] < maxrms[1])
+                {
+                    maxrms[0] = maxrms[1];
+                }
+                alarm = 4;//Convert.ToDouble(alarmtext.Text)
+                warning = 0.5 * alarm;
+                //
+                SplashScreen.cut.vibrationmonitor();//振動監控畫面
+                //
+                if (SplashScreen.cut.panel1.Visible == false && SplashScreen.cut.panel6.Visible == true)
+                {
+                    //執行優化
+                    //小助手演算法
+                    double varSP;
+                    //double[] vecSP = new double[12];
+                    //double[] vecSP = new double[14];
+                    if (indexMaterial == 1)
+                    {
+                        //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                        double[] vecSP2 = new double[] { 0, 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                        //for (int i = 0; i < 12; i++)
+                        for (int i = 0; i < 14; i++)
+                        {
+                            vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
+                            vecSP[0] = 3183;
+                            vecSP[1] = 3183;
+                        }
+                    }
+                    else if (indexMaterial == 2)
+                    {
+                        //double[] vecSP2 = new double[] { 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
+                        double[] vecSP2 = new double[] { 0, 0, 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
+                        //for (int i = 0; i < 12; i++)
+                        for (int i = 0; i < 14; i++)
+                        {
+                            vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
+                            vecSP[0] = 3000;
+                            vecSP[1] = 3000;
+                        }
+                    }
+                    //for (int i = 12; i >= 1; i--)
+                    //{
+                    //    vecSP[i - 1] = SPmax - 250 * (13 - i - 1);//---------------------------------------------------------------------------------------------
+                    //}
+
+                    double threshold = CUTeffiForm.threshold;
+                    if (allrms1 > threshold) // 閥值定義：轉與不轉振動量大小
+                    {
+                        iii++;
+                        if (iii == 5)//穩定大於閥值1秒後，紀錄當下時間
+                        {
+                            SW_State.WriteLine(vecTime[0]);
+                            SW_State2.WriteLine("start");
+                            Console.WriteLine("start");
+                        }
+                        //Console.Write(indexP + "  " + vecTime[0] + "  " + rms_vibration + " ");
+                    }
+                    else
+                    {
+                        if (iii >= 5)//小於閥值後，紀錄切削結束時間
+                        {
+                            iii = 0;
+                            indexP++;
+                            SW_State.WriteLine(vecTime[0] - 0.1);
+                            SW_State2.WriteLine("stop");
+                            Console.WriteLine("Spindle stop now");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Spindle will spin up in few seconds ");
+                        }
+                    }
+                    if (indexP == vecSP.Length)//當indexP超過最後一個切削轉速後，停止擷取程式、記錄結束時間、進行最佳化
+                    {
+                        SW_State.WriteLine(vecTime[0] - 0.1);
+                        SW_State2.WriteLine("end");
+                        StopDAQ();
+                        SPOptimization(SPmax);
+                        return;
+                    }
+                    Console.Write(indexP + "  " + vecSP[indexP] + "  " + vecTime[0] + "  " + allrms1 + " " + iii + " ");
+                }
+                //if (savedata_checkBox.Checked == true)
+                //{
+                //for (int i = 0; i < d00.Length; i++)
+                //{
+
+                //    SW_RawData.Write(d00[i]);
+                //    SW_RawData.Write(",");
+                //    SW_RawData.Write(d10[i]);
+                //    SW_RawData.Write(",");
+                //    SW_RawData.WriteLine(d20[i]);
+                //}
+                //SW_RMSData.Write(vecTime[0]);
+                //SW_RMSData.Write(",");
+                //SW_RMSData.WriteLine(allrms1);
+                //SW_entropy.Write(vecTime[0]);
+                //SW_entropy.Write(",");
+                //SW_entropy.WriteLine(allentropy[0]);
+                //}
                 ////////////////////////////FFT////////////////////////////////////////
                 //double[] d0Copy = new double[d0.Length * 10];
 
@@ -212,98 +346,94 @@ namespace Cuteffi_rebuild
                 //    int loc = vecFFT2.ToList().IndexOf(vecFFT2.Max());
                 //    varSP = vecFqtmp[loc + Convert.ToInt16(Math.Floor((SPmax - 5000) / 60) - 1)] * 60;
                 //}
-                double varSP;
-                //SW_RMSData.Write(vecTime[0]);
-                //SW_RMSData.Write(",");
-                //SW_RMSData.Write(varSP);
-                //SW_RMSData.Write(",");
-                //SW_RMSData.WriteLine(rms_vibration);
-
-                //double[] vecSP = new double[12];
-                double[] vecSP = new double[13];
-                if (indexMaterial == 1)
-                {
-                    //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
-                    double[] vecSP2 = new double[] { 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
-                    //for (int i = 0; i < 12; i++)
-                    for (int i = 0; i < 13; i++)
-                    {
-                        vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
-                        vecSP[0] = 3183;
-                    }
-                }
-                else if (indexMaterial == 2)
-                {
-                    //double[] vecSP2 = new double[] { 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
-                    double[] vecSP2 = new double[] { 0, 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
-                    //for (int i = 0; i < 12; i++)
-                    for (int i = 0; i < 13; i++)
-                    {
-                        vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
-                        vecSP[0] = 3183;
-                    }
-                }
-                //for (int i = 12; i >= 1; i--)
+                ////小助手演算法
+                //double varSP;
+                ////double[] vecSP = new double[12];
+                //double[] vecSP = new double[14];
+                //if (indexMaterial == 1)
                 //{
-                //    vecSP[i - 1] = SPmax - 250 * (13 - i - 1);//---------------------------------------------------------------------------------------------
+                //    //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                //    double[] vecSP2 = new double[] { 0, 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                //    //for (int i = 0; i < 12; i++)
+                //    for (int i = 0; i < 14; i++)
+                //    {
+                //        vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
+                //        vecSP[0] = 3183;
+                //        vecSP[1] = 3183;
+                //    }
                 //}
-
-
-                double threshold = CUTeffiForm.threshold;
-                if (rms_vibration > threshold) // 閥值定義：轉與不轉振動量大小
-                {
-                    iii++;
-                    if (iii == 10)//穩定大於閥值1秒後，紀錄當下時間
-                    {
-                        SW_State.WriteLine(vecTime[0]);
-                        SW_State2.WriteLine("start");
-                        Console.WriteLine("start");
-                    }
-
-
-                    //Console.Write(indexP + "  " + vecTime[0] + "  " + rms_vibration + " ");
-                }
-                else
-                {
-                    if (iii >= 10)//小於閥值後，紀錄切削結束時間
-                    {
-                        iii = 0;
-                        indexP++;
-                        SW_State.WriteLine(vecTime[0] - 0.1);
-                        SW_State2.WriteLine("stop");
-                        Console.WriteLine("Spindle stop now");
-
-
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Spindle will spin up in few seconds ");
-                    }
-                }
-                if (indexP == vecSP.Length)//當indexP超過最後一個切削轉速後，停止擷取程式、記錄結束時間、進行最佳化
-                {
-                    SW_State.WriteLine(vecTime[0] - 0.1);
-                    SW_State2.WriteLine("end");
-                    StopDAQ();
-                    SPOptimization(SPmax);
-                    return;
-                }
-                Console.Write(indexP + "  " + vecSP[indexP] + "  " + vecTime[0] + "  " + rms_vibration + " " + iii + " ");
+                //else if (indexMaterial == 2)
+                //{
+                //    //double[] vecSP2 = new double[] { 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
+                //    double[] vecSP2 = new double[] { 0, 0, 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
+                //    //for (int i = 0; i < 12; i++)
+                //    for (int i = 0; i < 14; i++)
+                //    {
+                //        vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
+                //        vecSP[0] = 3000;
+                //        vecSP[1] = 3000;
+                //    }
+                //}
+                ////for (int i = 12; i >= 1; i--)
+                ////{
+                ////    vecSP[i - 1] = SPmax - 250 * (13 - i - 1);//---------------------------------------------------------------------------------------------
+                ////}
+                
+                //double threshold = CUTeffiForm.threshold;
+                //if (allrms1 > threshold) // 閥值定義：轉與不轉振動量大小
+                //{
+                //    iii++;
+                //    if (iii == 5)//穩定大於閥值1秒後，紀錄當下時間
+                //    {
+                //        SW_State.WriteLine(vecTime[0]);
+                //        SW_State2.WriteLine("start");
+                //        Console.WriteLine("start");
+                //    }
+                //    //Console.Write(indexP + "  " + vecTime[0] + "  " + rms_vibration + " ");
+                //}
+                //else
+                //{
+                //    if (iii >= 5)//小於閥值後，紀錄切削結束時間
+                //    {
+                //        iii = 0;
+                //        indexP++;
+                //        SW_State.WriteLine(vecTime[0] - 0.1);
+                //        SW_State2.WriteLine("stop");
+                //        Console.WriteLine("Spindle stop now");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("Spindle will spin up in few seconds ");
+                //    }
+                //}
+                //if (indexP == vecSP.Length)//當indexP超過最後一個切削轉速後，停止擷取程式、記錄結束時間、進行最佳化
+                //{
+                //    SW_State.WriteLine(vecTime[0] - 0.1);
+                //    SW_State2.WriteLine("end");
+                //    StopDAQ();
+                //    SPOptimization(SPmax);
+                //    return;
+                //}
+                //Console.Write(indexP + "  " + vecSP[indexP] + "  " + vecTime[0] + "  " + allrms1 + " " + iii + " ");
+                //
+                //存檔區
                 SW_RMSData.Write(vecTime[0]);
                 SW_RMSData.Write(",");
                 SW_RMSData.Write(vecSP[indexP]);
                 SW_RMSData.Write(",");
-                SW_RMSData.WriteLine(rms_vibration);
+                SW_RMSData.WriteLine(allrms1);
 
                 for (int i = 0; i < d0.Length; i++)
                 {
+                    SW_RawData.Write(vecTime[i]);
+                    SW_RawData.Write(",");
                     SW_RawData.Write(d0[i]);
                     SW_RawData.Write(",");
-                    SW_RawData.WriteLine(d1[i]);
-
+                    SW_RawData.Write(d1[i]);
+                    SW_RawData.Write(",");
+                    SW_RawData.WriteLine(d2[i]);
                 }
-
+                //
 
                 ////////////////////////////////////////////////////
                 //double[] varSPP = new double[vecSP.Length];
@@ -408,7 +538,7 @@ namespace Cuteffi_rebuild
 
                 analogInReader.BeginMemoryOptimizedReadWaveform(Convert.ToInt32(1280),
                     analogCallback, myTask, data);
-                int AAA = 1;
+                
             }
         }
 
@@ -425,10 +555,10 @@ namespace Cuteffi_rebuild
             return Math.Sqrt(sum / x.Length);
         }
 
-        public void AA()
-        {
-            SPOptimization(8000);
-        }
+        //public void AA()
+        //{
+        //    SPOptimization(8000);
+        //}
 
         //------------------------------------------------------------------------------------------------------------------------//
         //------------------------------------- Function of spindle speed optimization ---------------------------------------//
@@ -541,43 +671,45 @@ namespace Cuteffi_rebuild
             //------------------------------------- Spindle speed optimization ---------------------------------------//
             int indexMaterial = CUTeffiForm.indexMaterial;
             //double[] vecSP = new double[12];
-            double[] vecSP = new double[13];
+            double[] vecSP = new double[14];
             if (indexMaterial == 1)
             {
                 //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
-                double[] vecSP2 = new double[] { 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                double[] vecSP2 = new double[] { 0, 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
                 //for (int i = 0; i < 12; i++)
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 14; i++)
                 {
                     vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
                     vecSP[0] = 3183;
+                    vecSP[1] = 3183;
                 }
             }
             else if (indexMaterial == 2)
             {
                 //double[] vecSP2 = new double[] { 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
-                double[] vecSP2 = new double[] { 0, 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
+                double[] vecSP2 = new double[] { 0, 0, 0, 1600, 600, 2000, 200, 1400, 800, 2200, 1000, 1800, 1200, 400 };
                 //for (int i = 0; i < 12; i++)
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 14; i++)
                 {
                     vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
-                    vecSP[0] = 3183;
+                    vecSP[0] = 3000;
+                    vecSP[1] = 3000;
                 }
             }
             //double[] vecSP = new double[12];//-------------------------------------------------------------------------------------------------
-            int[] vecLoc = new int[vecState.Length - 3];
+            int[] vecLoc = new int[vecState.Length - 5];
             //for (int i = 12; i >= 1; i--)
             //{
             //    vecSP[i - 1] = maxSP - 250 * (13 - i - 1);
             //}
 
-            for (int i = 2; i < vecState.Length - 1; i++)
+            for (int i = 4; i < vecState.Length - 1; i++)
             {
-                vecLoc[i - 2] = Array.IndexOf(vecTime, vecState[i]); ;
+                vecLoc[i - 4] = Array.IndexOf(vecTime, vecState[i]); ;
             }
 
-            double[] Crms = new double[vecSP.Length - 1];
-            for (int i = 0; i < vecSP.Length - 1; i++)//vecSP.Length
+            double[] Crms = new double[vecSP.Length - 2];
+            for (int i = 0; i < vecSP.Length - 2; i++)//vecSP.Length
             {
                 int varRange = vecLoc[2 * i + 1] - vecLoc[2 * i]; //stop index - start index
                 int varLoc1 = Convert.ToInt32(Math.Floor(varRange * 0.8));
@@ -590,18 +722,22 @@ namespace Cuteffi_rebuild
             }
 
             double[] OptimizedSP = new double[4];
+            double[] OptimizedG = new double[4];
             double[] arrayB = new double[Crms.Length];
             Array.Copy(Crms, 0, arrayB, 0, Crms.Length);
             for (int i = 1; i <= 4; i++)
             {
                 int varB = Array.IndexOf(arrayB, arrayB.Min());
-                OptimizedSP[i - 1] = vecSP[varB + 1];
+                OptimizedSP[i - 1] = vecSP[varB + 2];
+                OptimizedG[i - 1] = arrayB[varB];
                 arrayB[varB] = 1000000000;
             }
             //return OptimizedSP;
             double[] A = CUTeffiForm.A;
+            //double[] G = CUTeffiForm.G;
             A = OptimizedSP;
-            SplashScreen.cut.panelupdate(A);
+            //G = OptimizedG;
+            SplashScreen.cut.panelupdate(A, OptimizedG);
             //CUTeffiForm CE = new CUTeffiForm();
             //CE.panelupdate(A);
 
