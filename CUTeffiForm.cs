@@ -426,7 +426,7 @@ namespace Cuteffi_rebuild
             time_chart.Series[1].Points.Clear();
             time_chart.Series[2].Points.Clear();
             time_chart.Series[3].Points.Clear();
-            time_chart.Series[4].Points.Clear();
+            //time_chart.Series[4].Points.Clear();
 
             for (int i = 0; i < nidaq.time.Length; i++)
             {

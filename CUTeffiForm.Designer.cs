@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUTeffiForm));
-            System.Windows.Forms.AGaugeLabel aGaugeLabel5 = new System.Windows.Forms.AGaugeLabel();
-            System.Windows.Forms.AGaugeRange aGaugeRange13 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange14 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange15 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel1 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeRange aGaugeRange1 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange2 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -285,64 +284,58 @@
             // time_chart
             // 
             this.time_chart.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.IsLabelAutoFit = false;
-            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX.LabelStyle.Format = "n1";
-            chartArea5.AxisX.Title = "Time(sec)";
-            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.IsLabelAutoFit = false;
-            chartArea5.AxisY.LabelAutoFitMaxFontSize = 18;
-            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.Title = "Vibration(g)";
-            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.Name = "ChartArea1";
-            this.time_chart.ChartAreas.Add(chartArea5);
-            legend9.Enabled = false;
-            legend9.Name = "Legend1";
-            legend10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend10.IsTextAutoFit = false;
-            legend10.MaximumAutoSize = 20F;
-            legend10.Name = "Legend2";
-            this.time_chart.Legends.Add(legend9);
-            this.time_chart.Legends.Add(legend10);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.Format = "n1";
+            chartArea1.AxisX.Title = "Time(sec)";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelAutoFitMaxFontSize = 18;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.Title = "Vibration(g)";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.Name = "ChartArea1";
+            this.time_chart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 20F;
+            legend2.Name = "Legend2";
+            this.time_chart.Legends.Add(legend1);
+            this.time_chart.Legends.Add(legend2);
             this.time_chart.Location = new System.Drawing.Point(-1, 1);
             this.time_chart.Name = "time_chart";
             this.time_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series21.Color = System.Drawing.Color.Green;
-            series21.Legend = "Legend1";
-            series21.Name = "RMS";
-            series22.ChartArea = "ChartArea1";
-            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series22.Legend = "Legend2";
-            series22.MarkerColor = System.Drawing.Color.Red;
-            series22.Name = "Alarm";
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series23.Legend = "Legend2";
-            series23.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            series23.Name = "Warning";
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series24.Legend = "Legend2";
-            series24.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series24.Name = "Max";
-            series25.ChartArea = "ChartArea1";
-            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series25.Color = System.Drawing.Color.Magenta;
-            series25.Legend = "Legend1";
-            series25.Name = "mse";
-            this.time_chart.Series.Add(series21);
-            this.time_chart.Series.Add(series22);
-            this.time_chart.Series.Add(series23);
-            this.time_chart.Series.Add(series24);
-            this.time_chart.Series.Add(series25);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "RMS";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series2.Legend = "Legend2";
+            series2.MarkerColor = System.Drawing.Color.Red;
+            series2.Name = "Alarm";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series3.Legend = "Legend2";
+            series3.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series3.Name = "Warning";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series4.Legend = "Legend2";
+            series4.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.Name = "Max";
+            this.time_chart.Series.Add(series1);
+            this.time_chart.Series.Add(series2);
+            this.time_chart.Series.Add(series3);
+            this.time_chart.Series.Add(series4);
             this.time_chart.Size = new System.Drawing.Size(666, 476);
             this.time_chart.TabIndex = 14;
             this.time_chart.Text = "chart1";
-            title5.Name = "Title1";
-            this.time_chart.Titles.Add(title5);
+            title1.Name = "Title1";
+            this.time_chart.Titles.Add(title1);
             // 
             // panel2
             // 
@@ -422,11 +415,11 @@
             this.panelSetting.Controls.Add(this.textBox16);
             this.panelSetting.Controls.Add(this.label53);
             this.panelSetting.Controls.Add(this.textBox15);
-            this.panelSetting.Controls.Add(this.textBox14);
-            this.panelSetting.Controls.Add(this.label30);
             this.panelSetting.Controls.Add(this.checkBox2);
             this.panelSetting.Controls.Add(this.panel7);
+            this.panelSetting.Controls.Add(this.textBox14);
             this.panelSetting.Controls.Add(this.checkBox4);
+            this.panelSetting.Controls.Add(this.label30);
             this.panelSetting.Controls.Add(this.checkBox1);
             this.panelSetting.Controls.Add(this.checkBox3);
             this.panelSetting.Controls.Add(this.textBox8);
@@ -468,6 +461,7 @@
             this.label54.Size = new System.Drawing.Size(40, 21);
             this.label54.TabIndex = 35;
             this.label54.Text = "mm";
+            this.label54.Visible = false;
             // 
             // textBox16
             // 
@@ -475,7 +469,9 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(59, 27);
             this.textBox16.TabIndex = 34;
-            this.textBox16.Text = "0";
+            this.textBox16.Text = "6";
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox16.Visible = false;
             // 
             // label53
             // 
@@ -486,33 +482,37 @@
             this.label53.Size = new System.Drawing.Size(42, 21);
             this.label53.TabIndex = 33;
             this.label53.Text = "切寬";
+            this.label53.Visible = false;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(199, 164);
+            this.textBox15.Location = new System.Drawing.Point(199, 203);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(59, 27);
             this.textBox15.TabIndex = 32;
-            this.textBox15.Text = "0";
+            this.textBox15.Text = "65";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox15.Visible = false;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(118, 164);
+            this.textBox14.Location = new System.Drawing.Point(118, 203);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(59, 27);
             this.textBox14.TabIndex = 32;
-            this.textBox14.Text = "0";
+            this.textBox14.Text = "65";
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox14.Visible = false;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(11, 168);
+            this.label30.Location = new System.Drawing.Point(11, 207);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(102, 19);
             this.label30.TabIndex = 31;
             this.label30.Text = "工件幾何(X,Y)";
+            this.label30.Visible = false;
             // 
             // checkBox2
             // 
@@ -542,6 +542,7 @@
             this.checkBox4.TabIndex = 29;
             this.checkBox4.Text = "效率";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.Visible = false;
             this.checkBox4.Click += new System.EventHandler(this.checkBox4_Click);
             // 
             // checkBox1
@@ -568,6 +569,7 @@
             this.checkBox3.TabIndex = 28;
             this.checkBox3.Text = "品質";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Visible = false;
             this.checkBox3.Click += new System.EventHandler(this.checkBox3_Click);
             // 
             // textBox8
@@ -593,7 +595,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.Location = new System.Drawing.Point(195, 55);
+            this.label20.Location = new System.Drawing.Point(189, 55);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(40, 21);
             this.label20.TabIndex = 24;
@@ -603,7 +605,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label19.Location = new System.Drawing.Point(195, 132);
+            this.label19.Location = new System.Drawing.Point(189, 132);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(82, 21);
             this.label19.TabIndex = 23;
@@ -637,6 +639,7 @@
             this.label17.Size = new System.Drawing.Size(74, 21);
             this.label17.TabIndex = 20;
             this.label17.Text = "測試模式";
+            this.label17.Visible = false;
             // 
             // textBox6
             // 
@@ -644,7 +647,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(59, 27);
             this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "10";
+            this.textBox6.Text = "12";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox5
@@ -710,7 +713,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(185, 220);
+            this.label11.Location = new System.Drawing.Point(185, 169);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 21);
             this.label11.TabIndex = 13;
@@ -743,10 +746,11 @@
             this.textBox3.Size = new System.Drawing.Size(59, 25);
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = "0";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 217);
+            this.textBox1.Location = new System.Drawing.Point(118, 166);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(59, 27);
             this.textBox1.TabIndex = 5;
@@ -768,7 +772,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(11, 220);
+            this.label2.Location = new System.Drawing.Point(11, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 21);
             this.label2.TabIndex = 2;
@@ -1433,36 +1437,36 @@
             this.aGauge1.BaseArcWidth = 5;
             this.aGauge1.Center = new System.Drawing.Point(172, 215);
             this.aGauge1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            aGaugeLabel5.Color = System.Drawing.SystemColors.WindowText;
-            aGaugeLabel5.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            aGaugeLabel5.Name = "Vibration (g)";
-            aGaugeLabel5.Position = new System.Drawing.Point(115, 300);
-            aGaugeLabel5.Text = "Vibration (g)";
-            this.aGauge1.GaugeLabels.Add(aGaugeLabel5);
-            aGaugeRange13.Color = System.Drawing.Color.Green;
-            aGaugeRange13.EndValue = 2F;
-            aGaugeRange13.InnerRadius = 130;
-            aGaugeRange13.InRange = false;
-            aGaugeRange13.Name = "GaugeRange1";
-            aGaugeRange13.OuterRadius = 150;
-            aGaugeRange13.StartValue = 0F;
-            aGaugeRange14.Color = System.Drawing.Color.Orange;
-            aGaugeRange14.EndValue = 4F;
-            aGaugeRange14.InnerRadius = 130;
-            aGaugeRange14.InRange = false;
-            aGaugeRange14.Name = "GaugeRange2";
-            aGaugeRange14.OuterRadius = 150;
-            aGaugeRange14.StartValue = 2F;
-            aGaugeRange15.Color = System.Drawing.Color.Red;
-            aGaugeRange15.EndValue = 5F;
-            aGaugeRange15.InnerRadius = 130;
-            aGaugeRange15.InRange = false;
-            aGaugeRange15.Name = "GaugeRange3";
-            aGaugeRange15.OuterRadius = 150;
-            aGaugeRange15.StartValue = 4F;
-            this.aGauge1.GaugeRanges.Add(aGaugeRange13);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange14);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange15);
+            aGaugeLabel1.Color = System.Drawing.SystemColors.WindowText;
+            aGaugeLabel1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            aGaugeLabel1.Name = "Vibration (g)";
+            aGaugeLabel1.Position = new System.Drawing.Point(115, 300);
+            aGaugeLabel1.Text = "Vibration (g)";
+            this.aGauge1.GaugeLabels.Add(aGaugeLabel1);
+            aGaugeRange1.Color = System.Drawing.Color.Green;
+            aGaugeRange1.EndValue = 2F;
+            aGaugeRange1.InnerRadius = 130;
+            aGaugeRange1.InRange = false;
+            aGaugeRange1.Name = "GaugeRange1";
+            aGaugeRange1.OuterRadius = 150;
+            aGaugeRange1.StartValue = 0F;
+            aGaugeRange2.Color = System.Drawing.Color.Orange;
+            aGaugeRange2.EndValue = 4F;
+            aGaugeRange2.InnerRadius = 130;
+            aGaugeRange2.InRange = false;
+            aGaugeRange2.Name = "GaugeRange2";
+            aGaugeRange2.OuterRadius = 150;
+            aGaugeRange2.StartValue = 2F;
+            aGaugeRange3.Color = System.Drawing.Color.Red;
+            aGaugeRange3.EndValue = 5F;
+            aGaugeRange3.InnerRadius = 130;
+            aGaugeRange3.InRange = false;
+            aGaugeRange3.Name = "GaugeRange3";
+            aGaugeRange3.OuterRadius = 150;
+            aGaugeRange3.StartValue = 4F;
+            this.aGauge1.GaugeRanges.Add(aGaugeRange1);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange2);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange3);
             this.aGauge1.Location = new System.Drawing.Point(3, 30);
             this.aGauge1.MaxValue = 5F;
             this.aGauge1.MinValue = 0F;
