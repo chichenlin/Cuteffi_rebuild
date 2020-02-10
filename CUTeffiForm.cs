@@ -22,9 +22,10 @@ namespace Cuteffi_rebuild
         public static int indexMaterial = 1; // 1 = 鋁合金,  2 = 不鏽鋼
         public double OperatingSPmax;
         public static int varNtest = 12;
-        public static double threshold;
-        public static double[] A = new double[4];
-        public static CheckBox material_Al, material_Iron;
+        public static double threshold = 0.06;
+        public static double[] A = new double[4],Alist = new double[12],Glist = new double[12];
+        public static Panel Panel1;
+        public static CheckBox checkBox_quality, checkBox_effect;
         nidaqAPI nidaq = new nidaqAPI();
 
 
@@ -34,15 +35,18 @@ namespace Cuteffi_rebuild
             InitializeComponent();
             this.Size = new Size(795, 600);
             panel1.Visible = true;
-            material_Al = this.checkBox3;
-            material_Iron = this.checkBox4;
+            checkBox_quality = this.checkBox3;
+            checkBox_effect = this.checkBox4;
+            Panel1 = this.panel1;
             initialCUTeffi();
         }
 
         private void monitorbutton_Click(object sender, EventArgs e)
         {
             panel6.Visible = false;
+            panel11.Visible = false;
             panel4.Visible = false;
+            panel13.Visible = false;
             panel10.Visible = false;
             panel3.Visible = false;
             panel1.Visible = true;
@@ -50,7 +54,7 @@ namespace Cuteffi_rebuild
             buttonSetting.Visible = false;
             buttonExport.Visible = false;
             indexPanelSetting = 0;
-
+            
 
         }
 
@@ -79,7 +83,10 @@ namespace Cuteffi_rebuild
             buttonExport.Visible = true;
             buttonSetting.Location = new Point(352, 507);
             buttonExport.Location = new Point(518, 507);
-            
+            panel13.Location = new Point(352, 457);
+            panel13.Visible = true;
+            millingstart.Visible = true;
+            millingstop.Visible = false;
         }
 
         private void initialCUTeffi()
@@ -102,6 +109,10 @@ namespace Cuteffi_rebuild
             label49.Text = " ";
             label50.Text = " ";
             label51.Text = " ";
+            label59.Text = " "; label60.Text = " "; label61.Text = " "; label62.Text = " "; label63.Text = " "; label64.Text = " "; label65.Text = " "; label66.Text = " "; label67.Text = " "; label68.Text = " ";
+            label69.Text = " "; label70.Text = " "; label71.Text = " "; label72.Text = " "; label73.Text = " "; label74.Text = " "; label75.Text = " "; label76.Text = " "; label77.Text = " "; label78.Text = " ";
+            label79.Text = " "; label80.Text = " "; label81.Text = " "; label82.Text = " "; label83.Text = " "; label84.Text = " "; label85.Text = " "; label86.Text = " "; label87.Text = " "; label88.Text = " ";
+            label89.Text = " "; label90.Text = " "; label91.Text = " "; label92.Text = " "; label93.Text = " "; label94.Text = " ";
 
             buttonStop.Visible = false;
             nidaq.StartDAQ(10000);
@@ -139,7 +150,7 @@ namespace Cuteffi_rebuild
             indexProgramState = 1;
             monitorbutton.Enabled = false;
             millingmodebutton.Enabled = false;
-            drillingmodebutton.Enabled = false;
+            //drillingmodebutton.Enabled = false;
             buttonSetting.Enabled = false;
             buttonExport.Enabled = false;
             statepanel(indexProgramState);
@@ -149,7 +160,7 @@ namespace Cuteffi_rebuild
             nidaq.StartDAQ(OperatingSPmax);
 
 
-            threshold = 0.15;// Convert.ToDouble(textBox15.Text);
+            
 
         }
         private void buttonStop_Click(object sender, EventArgs e)
@@ -159,7 +170,7 @@ namespace Cuteffi_rebuild
             buttonStop.Visible = false;
             monitorbutton.Enabled = true;
             millingmodebutton.Enabled = true;
-            drillingmodebutton.Enabled = true;
+            //drillingmodebutton.Enabled = true;
             indexProgramState = 2;
             buttonSetting.Enabled = true;
             buttonExport.Enabled = true;
@@ -173,14 +184,28 @@ namespace Cuteffi_rebuild
             {
                 panelSetting.Visible = true;
                 panel6.Visible = false;
+                panel13.Visible = false;
                 indexPanelSetting = 1;
-                panelSetting.Location = new Point(353, 75);
+                panelSetting.Location = new Point(352, 75);
             }
             else
             {
                 panelSetting.Visible = false;
                 panel6.Visible = true;
+                panel13.Visible = true;
                 indexPanelSetting = 0;
+                if (checkBox3.Checked == true && checkBox4.Checked ==false)
+                {
+                    panel11.Visible = false;
+                    panel6.Visible = true;
+                    panel6.Location = new Point(352, 75);
+                }
+                else
+                {
+                    panel6.Visible = false;
+                    panel11.Visible = true;
+                    panel11.Location = new Point(352, 75);
+                }
             }
         }
 
@@ -245,7 +270,7 @@ namespace Cuteffi_rebuild
             indexProccessMode = 0;
             checkBox1.Checked = true;
             checkBox2.Checked = false;
-            textBox3.Enabled = false;
+            textBox2.Enabled = false;
             textBox4.Enabled = false;
 
             if (string.IsNullOrEmpty(textBox1.Text)) { }
@@ -277,7 +302,7 @@ namespace Cuteffi_rebuild
                 indexProccessMode = 1;
                 checkBox1.Checked = false;
                 checkBox2.Checked = true;
-                textBox3.Enabled = true;
+                textBox2.Enabled = true;
                 textBox4.Enabled = true;
             }
 
@@ -338,52 +363,63 @@ namespace Cuteffi_rebuild
             }
 
         }
-        private void CUTeffi_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FSS.Close();
-        }
-
-        private void CUTeffi_Shown(object sender, EventArgs e)
-        {
-            FSS.Hide();
-        }
-
-
-
-
-
         ///
         public void panelupdate(double[] A,double[] G)
         {
-
             label24.Text = Convert.ToString(A[0]);
             label4.Text = Convert.ToString(A[1]);
             label5.Text = Convert.ToString(A[2]);
             label6.Text = Convert.ToString(A[3]);
-
             double FeedPerFlute = Convert.ToDouble(textBox7.Text);
             double Nunber_Flute = Convert.ToDouble(textBox8.Text);
             label25.Text = Convert.ToString(A[0] * FeedPerFlute * Nunber_Flute);
             label26.Text = Convert.ToString(A[1] * FeedPerFlute * Nunber_Flute);
             label27.Text = Convert.ToString(A[2] * FeedPerFlute * Nunber_Flute);
             label28.Text = Convert.ToString(A[3] * FeedPerFlute * Nunber_Flute);
-
-            label48.Text = Convert.ToString(Math.Round(G[0],2,MidpointRounding.AwayFromZero)); ;
-            label49.Text = Convert.ToString(Math.Round(G[1],2,MidpointRounding.AwayFromZero)); ;
-            label50.Text = Convert.ToString(Math.Round(G[2], 2, MidpointRounding.AwayFromZero)); ;
-            label51.Text = Convert.ToString(Math.Round(G[3], 2, MidpointRounding.AwayFromZero)); ;
+            label48.Text = Convert.ToString(Math.Round(G[0],2,MidpointRounding.AwayFromZero)); 
+            label49.Text = Convert.ToString(Math.Round(G[1],2,MidpointRounding.AwayFromZero)); 
+            label50.Text = Convert.ToString(Math.Round(G[2], 2, MidpointRounding.AwayFromZero)); 
+            label51.Text = Convert.ToString(Math.Round(G[3], 2, MidpointRounding.AwayFromZero)); 
             indexProgramState = 2;
             statepanel(indexProgramState);
-            buttonStart.Visible = true;
-            buttonStop.Visible = false;
+            millingstart.Visible = true;
+            millingstop.Visible = false;
+            monitorbutton.Enabled = true;
+            millingmodebutton.Enabled = true;
+            //drillingmodebutton.Enabled = true;
+            buttonSetting.Enabled = true;
+            buttonExport.Enabled = true;
+            aGauge1.Value = 0;
             Refresh();
         }
-
-
-
-
-
-
+        public void panelupdate2(double[] Alist, double[] Glist)
+        {
+            double FeedPerFlute = Convert.ToDouble(textBox7.Text);
+            double Nunber_Flute = Convert.ToDouble(textBox8.Text);
+            label59.Text = Convert.ToString(Alist[0]); label60.Text = Convert.ToString(Alist[0] * FeedPerFlute * Nunber_Flute); label61.Text = Convert.ToString(Math.Round(Glist[0], 2, MidpointRounding.AwayFromZero));
+            label62.Text = Convert.ToString(Alist[1]); label63.Text = Convert.ToString(Alist[1] * FeedPerFlute * Nunber_Flute); label64.Text = Convert.ToString(Math.Round(Glist[1], 2, MidpointRounding.AwayFromZero)); 
+            label65.Text = Convert.ToString(Alist[2]); label66.Text = Convert.ToString(Alist[2] * FeedPerFlute * Nunber_Flute); label67.Text = Convert.ToString(Math.Round(Glist[2], 2, MidpointRounding.AwayFromZero)); 
+            label68.Text = Convert.ToString(Alist[3]); label69.Text = Convert.ToString(Alist[3] * FeedPerFlute * Nunber_Flute); label70.Text = Convert.ToString(Math.Round(Glist[3], 2, MidpointRounding.AwayFromZero));
+            label71.Text = Convert.ToString(Alist[4]); label72.Text = Convert.ToString(Alist[4] * FeedPerFlute * Nunber_Flute); label73.Text = Convert.ToString(Math.Round(Glist[4], 2, MidpointRounding.AwayFromZero)); 
+            label74.Text = Convert.ToString(Alist[5]); label75.Text = Convert.ToString(Alist[5] * FeedPerFlute * Nunber_Flute); label76.Text = Convert.ToString(Math.Round(Glist[5], 2, MidpointRounding.AwayFromZero)); 
+            label77.Text = Convert.ToString(Alist[6]); label78.Text = Convert.ToString(Alist[6] * FeedPerFlute * Nunber_Flute); label79.Text = Convert.ToString(Math.Round(Glist[6], 2, MidpointRounding.AwayFromZero)); 
+            label80.Text = Convert.ToString(Alist[7]); label81.Text = Convert.ToString(Alist[7] * FeedPerFlute * Nunber_Flute); label82.Text = Convert.ToString(Math.Round(Glist[7], 2, MidpointRounding.AwayFromZero)); 
+            label83.Text = Convert.ToString(Alist[8]); label84.Text = Convert.ToString(Alist[8] * FeedPerFlute * Nunber_Flute); label85.Text = Convert.ToString(Math.Round(Glist[8], 2, MidpointRounding.AwayFromZero)); 
+            label86.Text = Convert.ToString(Alist[9]); label87.Text = Convert.ToString(Alist[9] * FeedPerFlute * Nunber_Flute); label88.Text = Convert.ToString(Math.Round(Glist[9], 2, MidpointRounding.AwayFromZero)); 
+            label89.Text = Convert.ToString(Alist[10]); label90.Text = Convert.ToString(Alist[10] * FeedPerFlute * Nunber_Flute); label91.Text = Convert.ToString(Math.Round(Glist[10], 2, MidpointRounding.AwayFromZero)); 
+            label92.Text = Convert.ToString(Alist[11]); label93.Text = Convert.ToString(Alist[11] * FeedPerFlute * Nunber_Flute); label94.Text = Convert.ToString(Math.Round(Glist[11], 2, MidpointRounding.AwayFromZero));
+            indexProgramState = 2;
+            statepanel(indexProgramState);
+            millingstart.Visible = true;
+            millingstop.Visible = false;
+            monitorbutton.Enabled = true;
+            millingmodebutton.Enabled = true;
+            //drillingmodebutton.Enabled = true;
+            buttonSetting.Enabled = true;
+            buttonExport.Enabled = true;
+            aGauge1.Value = 0;
+            Refresh();
+        }
         public void vibrationmonitor()
         {
             time_chart.Series[0].Points.Clear();
@@ -447,7 +483,6 @@ namespace Cuteffi_rebuild
             OperatingSPmax = Convert.ToDouble(textBox4.Text);
             nidaq.StartDAQ(OperatingSPmax);
 
-            threshold = 0.15;// Convert.ToDouble(textBox15.Text);
         }
 
         private void millingstop_Click(object sender, EventArgs e)
@@ -483,66 +518,50 @@ namespace Cuteffi_rebuild
                 double maxSP = Convert.ToDouble(textBox4.Text);
                 double CuttingDepth = Convert.ToDouble(textBox3.Text);
                 double ToolNumber = Convert.ToDouble(textBox5.Text);
-                nc.editNC(maxSP, CuttingDepth, ToolNumber, s, saveNC);  //textbox4: maximum spindle speed, textbox3: cutting depth, textbox5: tool number
+                double mmperflute = Convert.ToDouble(textBox7.Text);
+                double flutenumber = Convert.ToDouble(textBox8.Text);
+                double Xhalflength = Convert.ToDouble(textBox14.Text) / 2;
+                double Yhalflength = Convert.ToDouble(textBox15.Text) / 2;
+                double CuttingWidth = Convert.ToDouble(textBox16.Text);
+                double Tooldiameter = Convert.ToDouble(textBox6.Text);
+                nc.editNC(maxSP, CuttingDepth, ToolNumber, mmperflute, flutenumber, Xhalflength, Yhalflength, CuttingWidth, Tooldiameter, s, saveNC);  //textbox4: maximum spindle speed, textbox3: cutting depth, textbox5: tool number
                 Thread.Sleep(1000);
             }
         }
         private void checkBox3_Click(object sender, EventArgs e)
-        {
+        {//品質checkbox
             checkBox3.Checked = true;
             checkBox4.Checked = false;
-            indexMaterial = 1;
-
-            checkBox1.Enabled = true;
-            checkBox2.Enabled = true;
-            textBox2.Enabled = false;
-            textBox4.Enabled = false;
-
-            if (indexProccessMode == 0)
-            {
-                textBox2.Enabled = false;
-                textBox4.Enabled = false;
-                textBox3.Enabled = false;
-            }
-            else
-            {
-                textBox2.Enabled = false;
-                textBox4.Enabled = false;
-                textBox3.Enabled = true;
-            }
-
-            textBox4.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) * 0.9);
-            if (Convert.ToDouble(textBox4.Text) - (varNtest - 1) * 250 > 0)
-            {
-                textBox2.Text = Convert.ToString(Convert.ToDouble(textBox4.Text) - (varNtest - 1) * 250);
-            }
-            else
-            {
-                textBox2.Text = "0";
-            }
+            
+            //textBox4.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) * 0.9);
+            //if (Convert.ToDouble(textBox4.Text) - (varNtest - 1) * 250 > 0)
+            //{
+            //    textBox2.Text = Convert.ToString(Convert.ToDouble(textBox4.Text) - (varNtest - 1) * 250);
+            //}
+            //else
+            //{
+            //    textBox2.Text = "0";
+            //}
 
         }
 
         private void checkBox4_Click(object sender, EventArgs e)
-        {
-            textBox2.Text = "1000";
-            textBox4.Text = "3200";
-            checkBox1.Checked = false;
+        {//效率checkbox  
             checkBox3.Checked = false;
             checkBox4.Checked = true;
-            indexMaterial = 2;
-            checkBox1.Enabled = false;
-            checkBox2.Enabled = false;
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = true;
-            textBox4.Enabled = false;
+           
+            
+          
+        }
 
+        private void CUTeffi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FSS.Close();
+        }
 
-
+        private void CUTeffi_Shown(object sender, EventArgs e)
+        {
+            FSS.Hide();
         }
     }
-    
-
-
 }

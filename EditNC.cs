@@ -13,18 +13,19 @@ namespace Cuteffi_rebuild
         List<string> NCi = new List<string>();
         public StreamReader sr;
 
-        public void editNC(double maxSP, double CuttingDepth, double ToolNumber, string s, string saveNC)
+        public void editNC(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber, double Xhalflength, double Yhalflength, double CuttingWidth, double Tooldiameter, string s, string saveNC)
         {
 
             //string fileName = "D4000426_2.cnc";
-            if (CUTeffiForm.material_Al.Checked == true)
-            {
-                sr = new StreamReader(s + "\\NC\\O7202forAL2.txt");////
-            }
-            if (CUTeffiForm.material_Iron.Checked == true)
-            {
-                sr = new StreamReader(s + "\\NC\\O7202forIron.txt");////
-            }
+            //if (CUTeffiForm.material_Al.Checked == true)
+            //{
+            //    sr = new StreamReader(s + "\\NC\\O7202forAL3.txt");////
+            //}
+            //if (CUTeffiForm.material_Iron.Checked == true)
+            //{
+            //    sr = new StreamReader(s + "\\NC\\O7202forIron.txt");////
+            //}
+            sr = new StreamReader(s + "\\NC\\straight_test.txt");
             //StreamReader sr = new StreamReader(s + "\\NC\\O7202.txt");////
 
             while (!sr.EndOfStream)
@@ -44,7 +45,7 @@ namespace Cuteffi_rebuild
 
             }
 
-            EidtNc(maxSP, CuttingDepth, ToolNumber);
+            EidtNc(maxSP, CuttingDepth, ToolNumber, mmperflute, flutenumber, Xhalflength, Yhalflength,  CuttingWidth, Tooldiameter);
 
             writeNC(saveNC);
 
@@ -53,7 +54,7 @@ namespace Cuteffi_rebuild
             ////str.Close(); 
         }
 
-        private void EidtNc(double maxSP, double CuttingDepth, double ToolNumber)
+        private void EidtNc(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber,double Xhalflength,double Yhalflength,double CuttingWidth,double Tooldiameter)
         {
             string[] split;
 
@@ -81,8 +82,6 @@ namespace Cuteffi_rebuild
                             line = "#" + filter[ii] + "=" + Convert.ToString(maxSP) + "(" + filter[ii + 2];////
 
                             NCi[i] = line;
-
-
                         }
                         if (ii == 1 & filter[ii] == "2")
                         {
@@ -90,8 +89,6 @@ namespace Cuteffi_rebuild
                             line = "#" + filter[ii] + "=" + Convert.ToString(CuttingDepth) + "(" + filter[ii + 2];////
 
                             NCi[i] = line;
-
-
                         }
                         if (ii == 1 & filter[ii] == "3")
                         {
@@ -99,8 +96,48 @@ namespace Cuteffi_rebuild
                             line = "#" + filter[ii] + "=" + Convert.ToString(ToolNumber) + "(" + filter[ii + 2];////
 
                             NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "4")
+                        {
 
+                            line = "#" + filter[ii] + "=" + Convert.ToString(mmperflute) + "(" + filter[ii + 2];////
 
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "5")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(flutenumber) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "6")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(Xhalflength) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "7")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(Yhalflength) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "8")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(CuttingWidth) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "9")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(Tooldiameter) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
                         }
 
                         line = "";
