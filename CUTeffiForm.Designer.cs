@@ -61,11 +61,11 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -494,26 +494,6 @@
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox15.Visible = false;
             // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(118, 203);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(59, 27);
-            this.textBox14.TabIndex = 32;
-            this.textBox14.Text = "65";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox14.Visible = false;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(11, 207);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(102, 19);
-            this.label30.TabIndex = 31;
-            this.label30.Text = "工件幾何(X,Y)";
-            this.label30.Visible = false;
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -533,6 +513,16 @@
             this.panel7.Size = new System.Drawing.Size(5, 482);
             this.panel7.TabIndex = 30;
             // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(118, 203);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(59, 27);
+            this.textBox14.TabIndex = 32;
+            this.textBox14.Text = "65";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox14.Visible = false;
+            // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
@@ -544,6 +534,16 @@
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.Visible = false;
             this.checkBox4.Click += new System.EventHandler(this.checkBox4_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(11, 207);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(102, 19);
+            this.label30.TabIndex = 31;
+            this.label30.Text = "工件幾何(X,Y)";
+            this.label30.Visible = false;
             // 
             // checkBox1
             // 

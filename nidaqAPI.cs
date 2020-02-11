@@ -733,7 +733,7 @@ namespace Cuteffi_rebuild
                 for (int i = 1; i <= 4; i++)
                 {
                     int varB = Array.IndexOf(arrayB, arrayB.Min());
-                    OptimizedSP[i - 1] = vecSP[varB + 2];
+                    OptimizedSP[i - 1] = vecSP[varB + 1];
                     OptimizedG[i - 1] = arrayB[varB];
                     arrayB[varB] = 1000000000;
                 }

@@ -248,7 +248,10 @@ namespace Cuteffi_rebuild
                     sw.Write(" RPM, ");
                     sw.Write("F: ");
                     sw.Write(SaveFeed[0]);
-                    sw.WriteLine(" mm/min");
+                    sw.Write(" mm/min,");
+                    sw.Write("Vibration: ");
+                    sw.Write(SaveG[0]);
+                    sw.WriteLine(" g, ");
                     sw.WriteLine("");
                     sw.WriteLine("其他參數");
                     for (int i = 1; i < 4; i++)
@@ -258,7 +261,10 @@ namespace Cuteffi_rebuild
                         sw.Write(" RPM, ");
                         sw.Write("F: ");
                         sw.Write(SaveFeed[i]);
-                        sw.WriteLine(" mm/min");
+                        sw.Write(" mm/min,");
+                        sw.Write("Vibration: ");
+                        sw.Write(SaveG[i]);
+                        sw.WriteLine(" g, ");
                     }
                 }
             }
