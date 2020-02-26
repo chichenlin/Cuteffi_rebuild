@@ -13,13 +13,14 @@ namespace Cuteffi_rebuild
         List<string> NCi = new List<string>();
         public StreamReader sr;
 
-        public void editNC(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber, double Xhalflength, double Yhalflength, double CuttingWidth, double Tooldiameter, string s, string saveNC)
+        public void editNC(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber, double Xhalflength, double Yhalflength, double CuttingWidth, double Tooldiameter, double Cuttingcoordinate,string s, string saveNC)
         {
 
             //string fileName = "D4000426_2.cnc";
             //if (CUTeffiForm.material_Al.Checked == true)
             //{
             //    sr = new StreamReader(s + "\\NC\\O7202forAL3.txt");////
+            //sr = new StreamReader(s + "\\NC\\O7202forALL.txt");////
             //}
             //if (CUTeffiForm.material_Iron.Checked == true)
             //{
@@ -45,7 +46,7 @@ namespace Cuteffi_rebuild
 
             }
 
-            EidtNc(maxSP, CuttingDepth, ToolNumber, mmperflute, flutenumber, Xhalflength, Yhalflength,  CuttingWidth, Tooldiameter);
+            EidtNc(maxSP, CuttingDepth, ToolNumber, mmperflute, flutenumber, Xhalflength, Yhalflength,  CuttingWidth, Tooldiameter, Cuttingcoordinate);
 
             writeNC(saveNC);
 
@@ -54,7 +55,7 @@ namespace Cuteffi_rebuild
             ////str.Close(); 
         }
 
-        private void EidtNc(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber,double Xhalflength,double Yhalflength,double CuttingWidth,double Tooldiameter)
+        private void EidtNc(double maxSP, double CuttingDepth, double ToolNumber, double mmperflute, double flutenumber,double Xhalflength,double Yhalflength,double CuttingWidth,double Tooldiameter, double Cuttingcoordinate)
         {
             string[] split;
 
@@ -136,6 +137,13 @@ namespace Cuteffi_rebuild
                         {
 
                             line = "#" + filter[ii] + "=" + Convert.ToString(Tooldiameter) + "(" + filter[ii + 2];////
+
+                            NCi[i] = line;
+                        }
+                        if (ii == 1 & filter[ii] == "13")
+                        {
+
+                            line = "#" + filter[ii] + "=" + Convert.ToString(Cuttingcoordinate) + "(" + filter[ii + 2];////
 
                             NCi[i] = line;
                         }

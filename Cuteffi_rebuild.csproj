@@ -47,11 +47,11 @@
     </Reference>
     <Reference Include="NationalInstruments.Common, Version=17.5.40.49153, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\drawfigure\bin\Debug\NationalInstruments.Common.dll</HintPath>
+      <HintPath>bin\Debug\NationalInstruments.Common.dll</HintPath>
     </Reference>
-    <Reference Include="NationalInstruments.DAQmx, Version=19.5.45.0, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=AMD64">
+    <Reference Include="NationalInstruments.DAQmx, Version=19.6.45.1, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\drawfigure\bin\Debug\NationalInstruments.DAQmx.dll</HintPath>
+      <HintPath>bin\Debug\NationalInstruments.DAQmx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -39,7 +39,7 @@ namespace Cuteffi_rebuild
         public double[] plotrms = new double[1280];
         public double[] MSE = new double[1280];
         public double allrms1;
-        int indexplot, scale = 1;
+        public int indexplot, scale = 1;
         public double[] time = new double[100];
         public double starttime, warning, alarm;
         //public double[] vecSP = new double[14];
@@ -49,7 +49,7 @@ namespace Cuteffi_rebuild
         public StreamWriter SW_State;
         public StreamWriter SW_State2;
         public StreamWriter SW_RawData;
-        
+        public string userpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         [STAThread]
         public void StartDAQ(double a)
@@ -69,18 +69,22 @@ namespace Cuteffi_rebuild
             double Vmax = 5;
             double sen = 100;
             double EVN = 0.004;
-            double[] chan = new double[4] { 1, 1, 1, 0 };
+            double[] chan = new double[4] { 1, 1, 0, 0 };
+            if (!Directory.Exists(userpath+ "\\logdata\\"))
+            {
+                Directory.CreateDirectory(userpath + "\\logdata\\"); 
+            }
             if (CUTeffiForm.Panel1.Visible == true)
             {
-                SW_RMSData = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RMSData.txt");
-                SW_RawData = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RawData.txt");
+                SW_RMSData = new StreamWriter(userpath+"\\logdata\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RMSData.txt");
+                SW_RawData = new StreamWriter(userpath + "\\logdata\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RawData.txt");
             }
             else
             {
-                SW_RMSData = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\RMSData.txt");
-                SW_State = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\State.txt");
-                SW_State2 = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\State2.txt");
-                SW_RawData = new StreamWriter(System.Environment.CurrentDirectory + "\\logData\\RawData.txt");
+                SW_RMSData = new StreamWriter(userpath + "\\logdata\\RMSData.txt");
+                SW_State = new StreamWriter(userpath + "\\logdata\\State.txt");
+                SW_State2 = new StreamWriter(userpath + "\\logdata\\State2.txt");
+                SW_RawData = new StreamWriter(userpath + "\\logdata\\RawData.txt");
             }
             
 
@@ -124,6 +128,7 @@ namespace Cuteffi_rebuild
             maxrms[0] = 0;
             plotrms = new double[plotrms.Length];
             MSE = new double[MSE.Length];
+            
             indexP = 0;
             indexplot = 0;
            
@@ -143,18 +148,18 @@ namespace Cuteffi_rebuild
 
                 double[] d00 = data[0].GetRawData();
                 double[] d10 = data[1].GetRawData();
-                double[] d20 = data[2].GetRawData();
+                //double[] d20 = data[2].GetRawData();
                 PrecisionDateTime[] T = data[0].GetPrecisionTimeStamps();
 
                 double[] d0 = new double[d00.Length];
                 double[] d1 = new double[d10.Length];
-                double[] d2 = new double[d20.Length];
+                //double[] d2 = new double[d20.Length];
 
                 for (int i = 0; i < d0.Length; i++)//去趨勢
                 {
                     d0[i] = (d00[i] - d00.Average());
                     d1[i] = (d10[i] - d10.Average());
-                    d2[i] = (d20[i] - d20.Average());
+                    //d2[i] = (d20[i] - d20.Average());
                 }
 
                 for (int i = 0; i < data[0].SampleCount; i++)
@@ -171,7 +176,8 @@ namespace Cuteffi_rebuild
                 allrms0 = new double[d0.Length];
                 for (int i = 0; i < d0.Length; i++)
                 {
-                    allrms0[i] = Math.Sqrt(Math.Pow(d0[i], 2) + Math.Pow(d1[i], 2) + Math.Pow(d2[i], 2));
+                    //allrms0[i] = Math.Sqrt(Math.Pow(d0[i], 2) + Math.Pow(d1[i], 2) + Math.Pow(d2[i], 2));
+                    allrms0[i] = Math.Sqrt(Math.Pow(d0[i], 2) + Math.Pow(d1[i], 2));
                 }
                 allrms1 = rootMeanSquare(allrms0);
                 //double[] allentropy = new double[scale];
@@ -207,10 +213,11 @@ namespace Cuteffi_rebuild
                 {
                     maxrms[0] = maxrms[1];
                 }
-                alarm = 4;//Convert.ToDouble(alarmtext.Text)
-                warning = 0.5 * alarm;
+                alarm = CUTeffiForm.alarm_threshold;//Convert.ToDouble(alarmtext.Text)
+                warning = CUTeffiForm.warning_threshold;
                 //
                 SplashScreen.cut.vibrationmonitor();//振動監控畫面
+                SplashScreen.cut.ForAlarmChart();
                 //
                 if (SplashScreen.cut.panel6.Visible == true || SplashScreen.cut.panel11.Visible==true && SplashScreen.cut.panel1.Visible == false  )
                 {
@@ -218,21 +225,21 @@ namespace Cuteffi_rebuild
                     //小助手演算法
                     double varSP;
                     //double[] vecSP = new double[12];
-                    double[] vecSP = new double[13];
+                    //double[] vecSP = new double[13];
                     //double[] vecSP = new double[14];
                     if (indexMaterial == 1)
                     {
                         //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
                         //double[] vecSP2 = new double[] { 0, 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
-                        double[] vecSP2 = new double[] {0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                        double[] vecSP2 = new double[] { SPmax/2, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
                         //for (int i = 0; i < 12; i++)
                         //for (int i = 0; i < 14; i++)
-                        for (int i = 0; i < 13; i++)
+                        for (int i = 0; i < vecSP2.Length; i++)
                         {
                             vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
-                            //vecSP[0] = 3183;
-                            vecSP[0] = SPmax/2;
-                            //vecSP[1] = 3183;
+                            //vecSP[0] = SPmax / 2;
+                            //vecSP[0] = SPmax / 2;
+                            //vecSP[1] = SPmax / 2;
                         }
                     }
                     //else if (indexMaterial == 2)
@@ -256,7 +263,7 @@ namespace Cuteffi_rebuild
                     if (allrms1 > threshold) // 閥值定義：轉與不轉振動量大小
                     {
                         iii++;
-                        if (iii == 5)//穩定大於閥值1秒後，紀錄當下時間
+                        if (iii == 5)//穩定大於閥值0.5秒後，紀錄當下時間
                         {
                             SW_State.WriteLine(vecTime[0]);
                             SW_State2.WriteLine("start");
@@ -284,7 +291,7 @@ namespace Cuteffi_rebuild
                         SW_State.WriteLine(vecTime[0] - 0.1);
                         SW_State2.WriteLine("end");
                         StopDAQ();
-                        SPOptimization(SPmax);
+                        SPOptimization(1);
                         return;
                     }
                     Console.Write(indexP + "  " + vecSP[indexP] + "  " + vecTime[0] + "  " + allrms1 + " " + iii + " ");
@@ -397,9 +404,10 @@ namespace Cuteffi_rebuild
                     SW_RawData.Write(",");
                     SW_RawData.Write(d0[i]);
                     SW_RawData.Write(",");
-                    SW_RawData.Write(d1[i]);
-                    SW_RawData.Write(",");
-                    SW_RawData.WriteLine(d2[i]);
+                    SW_RawData.WriteLine(d1[i]);
+                    //SW_RawData.Write(",");
+                    //SW_RawData.WriteLine(d2[i]);
+                    
                 }
                 //
 
@@ -528,14 +536,14 @@ namespace Cuteffi_rebuild
         //------------------------------------------------------------------------------------------------------------------------//
         //------------------------------------- Function of spindle speed optimization ---------------------------------------//
         //-----------------------------------------------------------------------------------------------------------------------//
-        public void SPOptimization(double maxSP)
+        public void SPOptimization(double mode)
         //public static double SPOptimization(double maxSP)
         {
 
             //------------------------------------- Read log_State ---------------------------------------//
             int counter1 = 0;
             string line1;
-            StreamReader SR_State = new StreamReader(System.Environment.CurrentDirectory + "\\logdata\\State.txt");
+            StreamReader SR_State = new StreamReader(userpath + "\\logdata\\State.txt");
             List<double> DataRead1 = new List<double>();
 
             while ((line1 = SR_State.ReadLine()) != null)
@@ -577,7 +585,7 @@ namespace Cuteffi_rebuild
             //------------------------------------- Read log_RMSData ---------------------------------------//
             int counter = 0;
             string line;
-            StreamReader SR_RMSData = new StreamReader(System.Environment.CurrentDirectory + "\\logData\\RMSData.txt");
+            StreamReader SR_RMSData = new StreamReader(userpath + "\\logdata\\RMSData.txt");
             List<List<double>> DataRead = new List<List<double>>();
 
             while ((line = SR_RMSData.ReadLine()) != null)
@@ -642,15 +650,15 @@ namespace Cuteffi_rebuild
             {
                 //double[] vecSP2 = new double[] { 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
                 //double[] vecSP2 = new double[] { 0, 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
-                double[] vecSP2 = new double[] { 0, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
+                double[] vecSP2 = new double[] { SPmax/2, 0, 2000, 750, 2500, 250, 1750, 1000, 2750, 1250, 2250, 1500, 500 };
                 //for (int i = 0; i < 12; i++)
                 //for (int i = 0; i < 14; i++)
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < vecSP2.Length; i++)
                 {
                     vecSP[i] = SPmax - vecSP2[i];//---------------------------------------------------------------------------------------------
-                    vecSP[0] = SPmax/2;
-                    //vecSP[0] = 3183;
-                    //vecSP[1] = 3183;
+                    //vecSP[0] = SPmax / 2;
+                    //vecSP[0] = SPmax / 2;
+                    //vecSP[1] = SPmax / 2;
                 }
             }
             //else if (indexMaterial == 2)
@@ -681,8 +689,9 @@ namespace Cuteffi_rebuild
             {
                 vecLoc[i - 2] = Array.IndexOf(vecTime, vecState[i]); ;
             }
-
+            //double[] Crms = new double[vecSP.Length - 2];
             double[] Crms = new double[vecSP.Length - 1];
+            //for (int i = 0; i < vecSP.Length - 2; i++)
             for (int i = 0; i < vecSP.Length - 1; i++)//vecSP.Length
             {
                 int varRange = vecLoc[2 * i + 1] - vecLoc[2 * i]; //stop index - start index
@@ -694,14 +703,16 @@ namespace Cuteffi_rebuild
                 double varA = rootMeanSquare(arrayA);
                 Crms[i] = varA;
             }
-            double[] OptimizedSP = new double[4];
-            double[] OptimizedG = new double[4];
+            double[] OptimizedSP = new double[12];
+            double[] OptimizedG = new double[12];
             double[] OptimizedSPlist = new double[12];
             double[] OptimizedGlist = new double[12];
             double[] arrayB = new double[Crms.Length];
             Array.Copy(Crms, 0, arrayB, 0, Crms.Length);
-            double[] arrayC = new double[vecSP.Length-1];
+            double[] arrayC = new double[vecSP.Length - 1];
             Array.Copy(vecSP, 1, arrayC, 0, Crms.Length);
+            //double[] arrayC = new double[vecSP.Length - 2];
+            //Array.Copy(vecSP, 2, arrayC, 0, Crms.Length);
             //for (int i = 1; i <= 4; i++)
             //{
             //    int varB = Array.IndexOf(arrayB, arrayB.Min());
@@ -728,31 +739,35 @@ namespace Cuteffi_rebuild
             //SplashScreen.cut.panelupdate(A, OptimizedG);
 
 
-            if (CUTeffiForm.checkBox_quality.Checked == true && CUTeffiForm.checkBox_effect.Checked == false)
+            if (mode == 1)
             {
-                for (int i = 1; i <= 4; i++)
+                for (int i = 1; i <= 12; i++)
                 {
                     int varB = Array.IndexOf(arrayB, arrayB.Min());
                     OptimizedSP[i - 1] = vecSP[varB + 1];
+                    //OptimizedSP[i - 1] = vecSP[varB + 2];
                     OptimizedG[i - 1] = arrayB[varB];
                     arrayB[varB] = 1000000000;
                 }
                 A = OptimizedSP;
-                SplashScreen.cut.panelupdate(A, OptimizedG);
+                SplashScreen.cut.panelupdate2(A, OptimizedG);
             }
-            else
+            else if (mode == 2)
             {
                 for (int i = 1; i <= 12; i++)
                 {
                     int varC = Array.IndexOf(arrayC, arrayC.Max());
-                    OptimizedSPlist[i - 1] = vecSP[varC+1];
+                    OptimizedSPlist[i - 1] = vecSP[varC + 1];
+                    //OptimizedSPlist[i - 1] = vecSP[varC + 2];
                     OptimizedGlist[i - 1] = arrayB[varC];
-                    //arrayB[varC] = 1000000000;
                     arrayC[varC] = 0;
                 }
                 Alist = OptimizedSPlist;
                 Glist = OptimizedGlist;
                 SplashScreen.cut.panelupdate2(Alist, Glist);
+            }
+            else
+            {
             }
 
 
