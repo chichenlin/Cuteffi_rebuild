@@ -97,27 +97,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.millingstart = new System.Windows.Forms.Button();
             this.millingstop = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -183,7 +162,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             this.panelSetting.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -473,7 +451,7 @@
             this.Measure_threshold.Name = "Measure_threshold";
             this.Measure_threshold.Size = new System.Drawing.Size(59, 27);
             this.Measure_threshold.TabIndex = 36;
-            this.Measure_threshold.Text = "0.25";
+            this.Measure_threshold.Text = "0.6";
             this.Measure_threshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label54
@@ -485,17 +463,15 @@
             this.label54.Size = new System.Drawing.Size(40, 21);
             this.label54.TabIndex = 35;
             this.label54.Text = "mm";
-            this.label54.Visible = false;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(118, 317);
+            this.textBox16.Location = new System.Drawing.Point(118, 318);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(59, 27);
             this.textBox16.TabIndex = 34;
             this.textBox16.Text = "2";
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox16.Visible = false;
             // 
             // label53
             // 
@@ -506,7 +482,6 @@
             this.label53.Size = new System.Drawing.Size(42, 21);
             this.label53.TabIndex = 33;
             this.label53.Text = "切寬";
-            this.label53.Visible = false;
             // 
             // textBox15
             // 
@@ -742,10 +717,10 @@
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
             this.textBox3.Location = new System.Drawing.Point(118, 286);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(59, 25);
+            this.textBox3.Size = new System.Drawing.Size(59, 27);
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = "0.5";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -799,256 +774,6 @@
             this.label12.Size = new System.Drawing.Size(47, 21);
             this.label12.TabIndex = 14;
             this.label12.Text = "RPM";
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.label52);
-            this.panel6.Controls.Add(this.label47);
-            this.panel6.Controls.Add(this.label28);
-            this.panel6.Controls.Add(this.label27);
-            this.panel6.Controls.Add(this.label26);
-            this.panel6.Controls.Add(this.label51);
-            this.panel6.Controls.Add(this.label50);
-            this.panel6.Controls.Add(this.label49);
-            this.panel6.Controls.Add(this.label48);
-            this.panel6.Controls.Add(this.label25);
-            this.panel6.Controls.Add(this.label24);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.label23);
-            this.panel6.Controls.Add(this.label22);
-            this.panel6.Controls.Add(this.label21);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Location = new System.Drawing.Point(782, 75);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(336, 383);
-            this.panel6.TabIndex = 3;
-            this.panel6.Visible = false;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label52.Location = new System.Drawing.Point(238, 220);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(84, 21);
-            this.label52.TabIndex = 18;
-            this.label52.Text = "振動值 (g)";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label47.Location = new System.Drawing.Point(238, 77);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(84, 21);
-            this.label47.TabIndex = 18;
-            this.label47.Text = "振動值 (g)";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label28.Location = new System.Drawing.Point(144, 314);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(50, 21);
-            this.label28.TabIndex = 15;
-            this.label28.Text = "1000";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label27.Location = new System.Drawing.Point(144, 284);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(50, 21);
-            this.label27.TabIndex = 14;
-            this.label27.Text = "1000";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label26.Location = new System.Drawing.Point(144, 255);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(50, 21);
-            this.label26.TabIndex = 13;
-            this.label26.Text = "1000";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label51.Location = new System.Drawing.Point(258, 314);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(44, 21);
-            this.label51.TabIndex = 12;
-            this.label51.Text = "0.05";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label50.Location = new System.Drawing.Point(258, 284);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(44, 21);
-            this.label50.TabIndex = 12;
-            this.label50.Text = "0.05";
-            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label49.Location = new System.Drawing.Point(258, 254);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(44, 21);
-            this.label49.TabIndex = 12;
-            this.label49.Text = "0.05";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label48.Location = new System.Drawing.Point(258, 112);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(44, 21);
-            this.label48.TabIndex = 12;
-            this.label48.Text = "0.05";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label25.Location = new System.Drawing.Point(144, 112);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(50, 21);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "1000";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label24.Location = new System.Drawing.Point(28, 114);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(60, 21);
-            this.label24.TabIndex = 11;
-            this.label24.Text = "11000";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(107, 220);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 21);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "進給 (mm/min)";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label23.Location = new System.Drawing.Point(11, 220);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(95, 21);
-            this.label23.TabIndex = 9;
-            this.label23.Text = "轉速 (RPM)";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label22.Location = new System.Drawing.Point(107, 77);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(124, 21);
-            this.label22.TabIndex = 8;
-            this.label22.Text = "進給 (mm/min)";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label21.Location = new System.Drawing.Point(11, 77);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(95, 21);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "轉速 (RPM)";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(28, 314);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 21);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "11500";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(28, 284);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "12750";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(28, 254);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "13750";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(126, 193);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "其他參數";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(85, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "建議參數";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // millingstart
             // 
@@ -1238,7 +963,7 @@
             this.panel11.Controls.Add(this.Feed_choise);
             this.panel11.Controls.Add(this.label56);
             this.panel11.Controls.Add(this.label55);
-            this.panel11.Location = new System.Drawing.Point(356, 559);
+            this.panel11.Location = new System.Drawing.Point(782, 75);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(336, 383);
             this.panel11.TabIndex = 23;
@@ -1777,7 +1502,6 @@
             this.Controls.Add(this.openhistorydata_button);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panelSetting);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.buttonSetting);
             this.Controls.Add(this.buttonExport);
@@ -1789,7 +1513,6 @@
             this.Controls.Add(this.millingmodebutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "CUTeffiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuteffi";
@@ -1805,8 +1528,6 @@
             this.panel5.PerformLayout();
             this.panelSetting.ResumeLayout(false);
             this.panelSetting.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -1848,21 +1569,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonStart;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonStop;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label14;
@@ -1875,14 +1582,7 @@
         public System.Windows.Forms.DataVisualization.Charting.Chart time_chart;
         private System.Windows.Forms.Button millingstart;
         private System.Windows.Forms.Button millingstop;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label52;
         public System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label53;

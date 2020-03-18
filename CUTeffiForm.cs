@@ -28,8 +28,7 @@ namespace Cuteffi_rebuild
         public static Panel Panel1;
         public static CheckBox checkBox_quality, checkBox_effect;
         nidaqAPI nidaq = new nidaqAPI();
-
-
+        
 
         public CUTeffiForm()
         {
@@ -43,7 +42,6 @@ namespace Cuteffi_rebuild
         private void monitorbutton_Click(object sender, EventArgs e)
         {
             panel11.Visible = false;
-            panel6.Visible = false;
             panel13.Visible = false;
             panel3.Visible = false;
             panel1.Visible = true;
@@ -56,8 +54,13 @@ namespace Cuteffi_rebuild
             Alarm_threshold.Enabled = true;
             Warning_threshold.Enabled = true;
             label57.Visible = true; label58.Visible = true; label95.Visible = true; chart_maximum.Visible = true; Alarm_threshold.Visible = true; Warning_threshold.Visible = true;
-
-
+            time_chart.Series[0].Points.Clear();
+            time_chart.Series[1].Points.Clear();
+            time_chart.Series[2].Points.Clear();
+            time_chart.Series[3].Points.Clear();
+            alarm_chart.Series[0].Points.Clear();
+            alarm_chart.Series[1].Points.Clear();
+            alarm_chart.Series[2].Points.Clear();
         }
         private void millingmodebutton_Click(object sender, EventArgs e)
         {
@@ -91,19 +94,6 @@ namespace Cuteffi_rebuild
 
             textBox4.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) * 0.9);
             textBox2.Text = Convert.ToString(Convert.ToDouble(textBox4.Text) - (varNtest - 1) * 250);
-
-            label4.Text = " ";
-            label5.Text = " ";
-            label6.Text = " ";
-            label24.Text = " ";
-            label25.Text = " ";
-            label26.Text = " ";
-            label27.Text = " ";
-            label28.Text = " ";
-            label48.Text = " ";
-            label49.Text = " ";
-            label50.Text = " ";
-            label51.Text = " ";
             label59.Text = " "; label60.Text = " "; label61.Text = " "; label62.Text = " "; label63.Text = " "; label64.Text = " "; label65.Text = " "; label66.Text = " "; label67.Text = " "; label68.Text = " ";
             label69.Text = " "; label70.Text = " "; label71.Text = " "; label72.Text = " "; label73.Text = " "; label74.Text = " "; label75.Text = " "; label76.Text = " "; label77.Text = " "; label78.Text = " ";
             label79.Text = " "; label80.Text = " "; label81.Text = " "; label82.Text = " "; label83.Text = " "; label84.Text = " "; label85.Text = " "; label86.Text = " "; label87.Text = " "; label88.Text = " ";
@@ -539,18 +529,6 @@ namespace Cuteffi_rebuild
             buttonSetting.Enabled = false;
             buttonExport.Enabled = false;
             statepanel(indexProgramState);
-            label4.Text = " ";
-            label5.Text = " ";
-            label6.Text = " ";
-            label24.Text = " ";
-            label25.Text = " ";
-            label26.Text = " ";
-            label27.Text = " ";
-            label28.Text = " ";
-            label48.Text = " ";
-            label49.Text = " ";
-            label50.Text = " ";
-            label51.Text = " ";
             label59.Text = " "; label60.Text = " "; label61.Text = " "; label62.Text = " "; label63.Text = " "; label64.Text = " "; label65.Text = " "; label66.Text = " "; label67.Text = " "; label68.Text = " ";
             label69.Text = " "; label70.Text = " "; label71.Text = " "; label72.Text = " "; label73.Text = " "; label74.Text = " "; label75.Text = " "; label76.Text = " "; label77.Text = " "; label78.Text = " ";
             label79.Text = " "; label80.Text = " "; label81.Text = " "; label82.Text = " "; label83.Text = " "; label84.Text = " "; label85.Text = " "; label86.Text = " "; label87.Text = " "; label88.Text = " ";
@@ -618,7 +596,7 @@ namespace Cuteffi_rebuild
         public void ForAlarmChart()
         {
             alarm_chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            //alarm_chart.ChartAreas[0].AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            alarm_chart.ChartAreas[0].AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             alarm_chart.Series[0].Points.Clear();
             alarm_chart.Series[1].Points.Clear();
             alarm_chart.Series[2].Points.Clear();
@@ -654,7 +632,6 @@ namespace Cuteffi_rebuild
                 alarm_chart.Series[1].Points.AddXY(0, normalindex[i], normalindex[i] + 0.1);
                 alarm_chart.Series[2].Points.AddXY(0, normalindex[i], normalindex[i] + 0.1);
             }
-
             alarm_chart.Series[0].Points[1].Color = Color.Red;
             alarm_chart.Series[1].Points[1].Color = Color.Orange; 
             alarm_chart.Series[2].Points[1].Color = Color.Green;
@@ -669,22 +646,25 @@ namespace Cuteffi_rebuild
                 alarm_chart.Series[0].Points[i+2].Color = Color.Green;
                 alarm_chart.Series[1].Points[i+2].Color = Color.Green;
                 alarm_chart.Series[2].Points[i+2].Color = Color.Green;
-            }
-            
+            }            
         }
         private void openhistorydata_button_Click(object sender, EventArgs e)
         {
+            alarm_threshold = Convert.ToDouble(Alarm_threshold.Text);
+            warning_threshold = Convert.ToDouble(Warning_threshold.Text);
             //time_chart.Series.Clear();
             time_chart.Series[0].Points.Clear();
             time_chart.Series[1].Points.Clear();
             time_chart.Series[2].Points.Clear();
             time_chart.Series[3].Points.Clear();
+            alarm_chart.Series[0].Points.Clear();
+            alarm_chart.Series[1].Points.Clear();
+            alarm_chart.Series[2].Points.Clear();
             load_historydata();
         }
         private void load_historydata()
         {
-            string s = "C:\\Users\\User\\Documents\\logdata";////
-
+            string s =Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +"\\logdata";////
             OpenFileDialog sfd = new OpenFileDialog();
             sfd.InitialDirectory = s;
             sfd.Filter = "txt files (*.txt)|*.txt";
@@ -717,13 +697,65 @@ namespace Cuteffi_rebuild
                 {
                     time_chart.Series[0].Points.AddXY(vecTime[i]-vecTime[0], historydata[i]);
                 }
-
                 time_chart.ChartAreas[0].AxisY.Maximum = Double.NaN;
                 time_chart.ChartAreas[0].AxisY.Minimum = Double.NaN;
                 time_chart.ChartAreas[0].AxisX.Minimum = 0;
                 time_chart.ChartAreas[0].AxisX.Maximum = vecTime[vecTime.Length-1] - vecTime[0];
-
+                ///
+                alarm_chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                alarm_chart.ChartAreas[0].AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+                alarm_chart.Series[0].Points.Clear();
+                alarm_chart.Series[1].Points.Clear();
+                alarm_chart.Series[2].Points.Clear();
+                alarm_chart.ChartAreas[0].AxisX.Minimum = -1;
+                alarm_chart.ChartAreas[0].AxisX.Maximum = 3;
+                alarm_chart.ChartAreas[0].AxisY.Minimum = 0;
+                alarm_chart.ChartAreas[0].AxisY.Maximum = Math.Round(vecTime[vecTime.Length - 1] - vecTime[0],2);
+                double[] alarmindex = new double[vecTime.Length], warningindex = new double[vecTime.Length], normalindex = new double[vecTime.Length];
+                for (int i = 0; i < vecTime.Length; i++)
+                {
+                    if (historydata[i] >= alarm_threshold)
+                    {
+                        alarmindex[i] = Math.Round(vecTime[i] - vecTime[0], 2);
+                    }
+                    if (historydata[i] >= warning_threshold && historydata[i] < alarm_threshold)
+                    {
+                        warningindex[i] = Math.Round(vecTime[i] - vecTime[0], 2);
+                    }
+                    if (historydata[i] < warning_threshold)
+                    {
+                        normalindex[i] = Math.Round(vecTime[i] - vecTime[0], 2);
+                    }
+                }
+                for (int i = 0; i < alarmindex.Length; i++)
+                {
+                    alarm_chart.Series[0].Points.AddXY(2, alarmindex[i], alarmindex[i] + 0.1);
+                    alarm_chart.Series[1].Points.AddXY(2, alarmindex[i], alarmindex[i] + 0.1);
+                    alarm_chart.Series[2].Points.AddXY(2, alarmindex[i], alarmindex[i] + 0.1);
+                    alarm_chart.Series[0].Points.AddXY(1, warningindex[i], warningindex[i] + 0.1);
+                    alarm_chart.Series[1].Points.AddXY(1, warningindex[i], warningindex[i] + 0.1);
+                    alarm_chart.Series[2].Points.AddXY(1, warningindex[i], warningindex[i] + 0.1);
+                    alarm_chart.Series[0].Points.AddXY(0, normalindex[i], normalindex[i] + 0.1);
+                    alarm_chart.Series[1].Points.AddXY(0, normalindex[i], normalindex[i] + 0.1);
+                    alarm_chart.Series[2].Points.AddXY(0, normalindex[i], normalindex[i] + 0.1);
+                }
+                alarm_chart.Series[0].Points[1].Color = Color.Red;
+                alarm_chart.Series[1].Points[1].Color = Color.Orange;
+                alarm_chart.Series[2].Points[1].Color = Color.Green;
+                for (int i = 0; i < alarm_chart.Series[2].Points.Count; i += 3)
+                {
+                    alarm_chart.Series[0].Points[i].Color = Color.Red;
+                    alarm_chart.Series[1].Points[i].Color = Color.Red;
+                    alarm_chart.Series[2].Points[i].Color = Color.Red;
+                    alarm_chart.Series[0].Points[i + 1].Color = Color.Orange;
+                    alarm_chart.Series[1].Points[i + 1].Color = Color.Orange;
+                    alarm_chart.Series[2].Points[i + 1].Color = Color.Orange;
+                    alarm_chart.Series[0].Points[i + 2].Color = Color.Green;
+                    alarm_chart.Series[1].Points[i + 2].Color = Color.Green;
+                    alarm_chart.Series[2].Points[i + 2].Color = Color.Green;
+                }
             }
         }
+      
     }
 }
