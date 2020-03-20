@@ -17,7 +17,6 @@ namespace Cuteffi_rebuild
         public SplashScreen()
         {
             InitializeComponent();
-
         }
 
         private void SplashScreen_Shown(object sender, EventArgs e)

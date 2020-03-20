@@ -33,10 +33,28 @@ namespace Cuteffi_rebuild
         public CUTeffiForm()
         {
             InitializeComponent();
+            LoadDefult();
             this.Size = new Size(795, 600);
             panel1.Visible = true;
             Panel1 = this.panel1;
             initialCUTeffi();
+        }
+        private void LoadDefult()
+        {
+            textBox5.Text = Settings1.Default.ToolNumber;
+            textBox6.Text = Settings1.Default.ToolDiameter;
+            textBox8.Text = Settings1.Default.Toolflute;
+            textBox7.Text = Settings1.Default.FlutePermm;
+            textBox1.Text = Settings1.Default.SpindelMax;
+            cutting_coordinate.Text = Settings1.Default.CuttingCoordinate;
+            textBox14.Text = Settings1.Default.WorkpieceX;
+            textBox15.Text = Settings1.Default.WorkpieceY;
+            textBox3.Text = Settings1.Default.CuttingDepth;
+            textBox16.Text = Settings1.Default.CuttingWidth;
+            Measure_threshold.Text = Settings1.Default.MeasureThreshold;
+            chart_maximum.Text = Settings1.Default.ChartMax;
+            Alarm_threshold.Text = Settings1.Default.AlarmThreshold;
+            Warning_threshold.Text = Settings1.Default.WarningThreshold;
         }
 
         private void monitorbutton_Click(object sender, EventArgs e)
@@ -477,6 +495,25 @@ namespace Cuteffi_rebuild
             buttonExport.Enabled = true;
             aGauge1.Value = 0;
             Refresh();
+        }
+
+        private void CUTeffiForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings1.Default.ToolNumber = textBox5.Text;
+            Settings1.Default.ToolDiameter = textBox6.Text;
+            Settings1.Default.Toolflute = textBox8.Text;
+            Settings1.Default.FlutePermm = textBox7.Text;
+            Settings1.Default.SpindelMax = textBox1.Text;
+            Settings1.Default.CuttingCoordinate = cutting_coordinate.Text;
+            Settings1.Default.WorkpieceX = textBox14.Text;
+            Settings1.Default.WorkpieceY = textBox15.Text;
+            Settings1.Default.CuttingDepth = textBox3.Text;
+            Settings1.Default.CuttingWidth = textBox16.Text;
+            Settings1.Default.MeasureThreshold = Measure_threshold.Text;
+            Settings1.Default.ChartMax = chart_maximum.Text;
+            Settings1.Default.AlarmThreshold = Alarm_threshold.Text;
+            Settings1.Default.WarningThreshold = Warning_threshold.Text;
+            Settings1.Default.Save();
         }
 
         private void Feed_choise_Click(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -50,9 +49,9 @@
             System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
             this.panel1 = new System.Windows.Forms.Panel();
             this.alarm_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.time_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
-            this.time_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -147,7 +146,6 @@
             this.label55 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.openhistorydata_button = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chart_maximum = new System.Windows.Forms.TextBox();
             this.Alarm_threshold = new System.Windows.Forms.TextBox();
             this.Warning_threshold = new System.Windows.Forms.TextBox();
@@ -170,9 +168,15 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.alarm_chart);
             this.panel1.Controls.Add(this.buttonStop);
             this.panel1.Controls.Add(this.buttonStart);
+            this.panel1.Controls.Add(this.label95);
+            this.panel1.Controls.Add(this.chart_maximum);
+            this.panel1.Controls.Add(this.label58);
+            this.panel1.Controls.Add(this.Alarm_threshold);
+            this.panel1.Controls.Add(this.label57);
+            this.panel1.Controls.Add(this.Warning_threshold);
+            this.panel1.Controls.Add(this.alarm_chart);
             this.panel1.Controls.Add(this.time_chart);
             this.panel1.Location = new System.Drawing.Point(0, 75);
             this.panel1.Name = "panel1";
@@ -193,13 +197,14 @@
             chartArea1.AxisY.Title = "Time(sec)";
             chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.InnerPlotPosition.Auto = false;
-            chartArea1.InnerPlotPosition.Height = 81.50858F;
-            chartArea1.InnerPlotPosition.Width = 83.09536F;
-            chartArea1.InnerPlotPosition.X = 14.09562F;
-            chartArea1.InnerPlotPosition.Y = 3.01329F;
+            chartArea1.InnerPlotPosition.Height = 80F;
+            chartArea1.InnerPlotPosition.Width = 80F;
+            chartArea1.InnerPlotPosition.X = 10F;
+            chartArea1.InnerPlotPosition.Y = 2F;
             chartArea1.Name = "ChartArea1";
             this.alarm_chart.ChartAreas.Add(chartArea1);
             this.alarm_chart.Enabled = false;
+            legend1.Enabled = false;
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend1.IsTextAutoFit = false;
             legend1.MaximumAutoSize = 20F;
@@ -229,35 +234,11 @@
             this.alarm_chart.Series.Add(series1);
             this.alarm_chart.Series.Add(series2);
             this.alarm_chart.Series.Add(series3);
-            this.alarm_chart.Size = new System.Drawing.Size(666, 124);
+            this.alarm_chart.Size = new System.Drawing.Size(646, 124);
             this.alarm_chart.TabIndex = 18;
             this.alarm_chart.Text = "chart1";
             title1.Name = "Title1";
             this.alarm_chart.Titles.Add(title1);
-            // 
-            // buttonStop
-            // 
-            this.buttonStop.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStop.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.buttonStop.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonStop.Location = new System.Drawing.Point(544, 277);
-            this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(110, 64);
-            this.buttonStop.TabIndex = 16;
-            this.buttonStop.Text = "stop";
-            this.buttonStop.UseVisualStyleBackColor = false;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
-            // 
-            // buttonStart
-            // 
-            this.buttonStart.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.buttonStart.Location = new System.Drawing.Point(544, 277);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(110, 64);
-            this.buttonStart.TabIndex = 1;
-            this.buttonStart.Text = "start";
-            this.buttonStart.UseVisualStyleBackColor = true;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // time_chart
             // 
@@ -273,14 +254,15 @@
             chartArea2.AxisY.Title = "Vibration(g)";
             chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Height = 81.50858F;
-            chartArea2.InnerPlotPosition.Width = 83.09536F;
-            chartArea2.InnerPlotPosition.X = 14.09562F;
-            chartArea2.InnerPlotPosition.Y = 3.01329F;
+            chartArea2.InnerPlotPosition.Height = 80F;
+            chartArea2.InnerPlotPosition.Width = 80F;
+            chartArea2.InnerPlotPosition.X = 10F;
+            chartArea2.InnerPlotPosition.Y = 2F;
             chartArea2.Name = "ChartArea1";
             this.time_chart.ChartAreas.Add(chartArea2);
             legend2.Enabled = false;
             legend2.Name = "Legend1";
+            legend3.Enabled = false;
             legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend3.IsTextAutoFit = false;
             legend3.MaximumAutoSize = 20F;
@@ -297,6 +279,10 @@
             series4.Name = "RMS";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.IsValueShownAsLabel = true;
+            series5.Label = "Alarm";
+            series5.LabelForeColor = System.Drawing.Color.Red;
             series5.Legend = "Legend2";
             series5.MarkerColor = System.Drawing.Color.Red;
             series5.Name = "Alarm";
@@ -314,11 +300,35 @@
             this.time_chart.Series.Add(series5);
             this.time_chart.Series.Add(series6);
             this.time_chart.Series.Add(series7);
-            this.time_chart.Size = new System.Drawing.Size(666, 343);
+            this.time_chart.Size = new System.Drawing.Size(646, 330);
             this.time_chart.TabIndex = 14;
             this.time_chart.Text = "chart1";
             title2.Name = "Title1";
             this.time_chart.Titles.Add(title2);
+            // 
+            // buttonStop
+            // 
+            this.buttonStop.BackColor = System.Drawing.Color.Transparent;
+            this.buttonStop.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonStop.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonStop.Location = new System.Drawing.Point(581, 407);
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.Size = new System.Drawing.Size(88, 64);
+            this.buttonStop.TabIndex = 16;
+            this.buttonStop.Text = "stop";
+            this.buttonStop.UseVisualStyleBackColor = false;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonStart.Location = new System.Drawing.Point(581, 407);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(88, 64);
+            this.buttonStart.TabIndex = 1;
+            this.buttonStart.Text = "start";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // panel2
             // 
@@ -371,7 +381,7 @@
             // 
             // monitorbutton
             // 
-            this.monitorbutton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.monitorbutton.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
             this.monitorbutton.Location = new System.Drawing.Point(688, 75);
             this.monitorbutton.Name = "monitorbutton";
             this.monitorbutton.Size = new System.Drawing.Size(88, 64);
@@ -382,7 +392,7 @@
             // 
             // millingmodebutton
             // 
-            this.millingmodebutton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.millingmodebutton.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
             this.millingmodebutton.Location = new System.Drawing.Point(688, 145);
             this.millingmodebutton.Name = "millingmodebutton";
             this.millingmodebutton.Size = new System.Drawing.Size(88, 64);
@@ -430,7 +440,7 @@
             this.panelSetting.Controls.Add(this.label10);
             this.panelSetting.Controls.Add(this.label12);
             this.panelSetting.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panelSetting.Location = new System.Drawing.Point(1140, 75);
+            this.panelSetting.Location = new System.Drawing.Point(782, 77);
             this.panelSetting.Name = "panelSetting";
             this.panelSetting.Size = new System.Drawing.Size(336, 432);
             this.panelSetting.TabIndex = 4;
@@ -731,7 +741,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(59, 27);
             this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "15000";
+            this.textBox1.Text = "10000";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -813,7 +823,7 @@
             this.buttonExport.BackgroundImage = global::Cuteffi_rebuild.Properties.Resources.icon_export4;
             this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExport.Location = new System.Drawing.Point(948, 507);
+            this.buttonExport.Location = new System.Drawing.Point(526, 993);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(170, 50);
             this.buttonExport.TabIndex = 20;
@@ -826,7 +836,7 @@
             this.buttonSetting.BackgroundImage = global::Cuteffi_rebuild.Properties.Resources.icon_setting;
             this.buttonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSetting.Location = new System.Drawing.Point(782, 507);
+            this.buttonSetting.Location = new System.Drawing.Point(360, 993);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Size = new System.Drawing.Size(166, 50);
             this.buttonSetting.TabIndex = 19;
@@ -963,7 +973,7 @@
             this.panel11.Controls.Add(this.Feed_choise);
             this.panel11.Controls.Add(this.label56);
             this.panel11.Controls.Add(this.label55);
-            this.panel11.Location = new System.Drawing.Point(782, 75);
+            this.panel11.Location = new System.Drawing.Point(360, 559);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(336, 383);
             this.panel11.TabIndex = 23;
@@ -1416,15 +1426,15 @@
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.millingstop);
             this.panel13.Controls.Add(this.millingstart);
-            this.panel13.Location = new System.Drawing.Point(782, 457);
+            this.panel13.Location = new System.Drawing.Point(360, 943);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(336, 50);
             this.panel13.TabIndex = 25;
             // 
             // openhistorydata_button
             // 
-            this.openhistorydata_button.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.openhistorydata_button.Location = new System.Drawing.Point(688, 216);
+            this.openhistorydata_button.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
+            this.openhistorydata_button.Location = new System.Drawing.Point(688, 215);
             this.openhistorydata_button.Name = "openhistorydata_button";
             this.openhistorydata_button.Size = new System.Drawing.Size(88, 64);
             this.openhistorydata_button.TabIndex = 26;
@@ -1432,59 +1442,63 @@
             this.openhistorydata_button.UseVisualStyleBackColor = true;
             this.openhistorydata_button.Click += new System.EventHandler(this.openhistorydata_button_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // chart_maximum
             // 
-            this.chart_maximum.Location = new System.Drawing.Point(688, 305);
+            this.chart_maximum.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chart_maximum.Location = new System.Drawing.Point(581, 245);
             this.chart_maximum.Name = "chart_maximum";
-            this.chart_maximum.Size = new System.Drawing.Size(88, 22);
+            this.chart_maximum.Size = new System.Drawing.Size(88, 27);
             this.chart_maximum.TabIndex = 27;
             this.chart_maximum.Text = "5";
+            this.chart_maximum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Alarm_threshold
             // 
-            this.Alarm_threshold.Location = new System.Drawing.Point(688, 345);
+            this.Alarm_threshold.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Alarm_threshold.Location = new System.Drawing.Point(581, 308);
             this.Alarm_threshold.Name = "Alarm_threshold";
-            this.Alarm_threshold.Size = new System.Drawing.Size(88, 22);
+            this.Alarm_threshold.Size = new System.Drawing.Size(88, 27);
             this.Alarm_threshold.TabIndex = 27;
             this.Alarm_threshold.Text = "4";
+            this.Alarm_threshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Warning_threshold
             // 
-            this.Warning_threshold.Location = new System.Drawing.Point(688, 385);
+            this.Warning_threshold.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Warning_threshold.Location = new System.Drawing.Point(581, 371);
             this.Warning_threshold.Name = "Warning_threshold";
-            this.Warning_threshold.Size = new System.Drawing.Size(88, 22);
+            this.Warning_threshold.Size = new System.Drawing.Size(88, 27);
             this.Warning_threshold.TabIndex = 27;
             this.Warning_threshold.Text = "2";
+            this.Warning_threshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(688, 290);
+            this.label57.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label57.Location = new System.Drawing.Point(568, 215);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(89, 12);
+            this.label57.Size = new System.Drawing.Size(114, 19);
             this.label57.TabIndex = 28;
             this.label57.Text = "監控畫面最大值";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(688, 330);
+            this.label58.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label58.Location = new System.Drawing.Point(583, 281);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(65, 12);
+            this.label58.Size = new System.Drawing.Size(84, 19);
             this.label58.TabIndex = 29;
             this.label58.Text = "警告線閥值";
             // 
             // label95
             // 
             this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(688, 370);
+            this.label95.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label95.Location = new System.Drawing.Point(591, 344);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(53, 12);
+            this.label95.Size = new System.Drawing.Size(69, 19);
             this.label95.TabIndex = 30;
             this.label95.Text = "示警閥值";
             // 
@@ -1492,33 +1506,30 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1502, 1061);
-            this.Controls.Add(this.label95);
-            this.Controls.Add(this.label58);
-            this.Controls.Add(this.label57);
-            this.Controls.Add(this.Warning_threshold);
-            this.Controls.Add(this.Alarm_threshold);
-            this.Controls.Add(this.chart_maximum);
+            this.ClientSize = new System.Drawing.Size(1145, 1061);
             this.Controls.Add(this.openhistorydata_button);
-            this.Controls.Add(this.panel13);
             this.Controls.Add(this.panelSetting);
             this.Controls.Add(this.panel11);
-            this.Controls.Add(this.buttonSetting);
-            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.monitorbutton);
             this.Controls.Add(this.millingmodebutton);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.buttonExport);
+            this.Controls.Add(this.buttonSetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "CUTeffiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuteffi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CUTeffiForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CUTeffi_FormClosed);
             this.Shown += new System.EventHandler(this.CUTeffi_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alarm_chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.time_chart)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -1533,7 +1544,6 @@
             this.panel11.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1635,7 +1645,6 @@
         private System.Windows.Forms.Button openhistorydata_button;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox Measure_threshold;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox chart_maximum;
         private System.Windows.Forms.TextBox Alarm_threshold;
         private System.Windows.Forms.TextBox Warning_threshold;
