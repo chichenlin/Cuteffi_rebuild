@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>J:\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_CUTeffi.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AGauge, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -139,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\icon_export4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon_CUTeffi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

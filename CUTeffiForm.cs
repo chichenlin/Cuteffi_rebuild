@@ -34,7 +34,7 @@ namespace Cuteffi_rebuild
         {
             InitializeComponent();
             LoadDefult();
-            this.Size = new Size(795, 600);
+            this.Size = new Size(795, 580);
             panel1.Visible = true;
             Panel1 = this.panel1;
             initialCUTeffi();
@@ -60,7 +60,7 @@ namespace Cuteffi_rebuild
         private void monitorbutton_Click(object sender, EventArgs e)
         {
             panel11.Visible = false;
-            panel13.Visible = false;
+            //panel13.Visible = false;
             panel3.Visible = false;
             panel1.Visible = true;
             panelSetting.Visible = false;
@@ -82,17 +82,17 @@ namespace Cuteffi_rebuild
         }
         private void millingmodebutton_Click(object sender, EventArgs e)
         {
-            panel11.Location = new Point(352, 75);
+            panel11.Location = new Point(352, 80);
             panel11.Visible = true;
-            panel3.Location = new Point(0, 75);
+            panel3.Location = new Point(0, 80);
             panel3.Visible = true;
             panel1.Visible = false;
             buttonSetting.Visible = true;
             buttonExport.Visible = true;
-            buttonSetting.Location = new Point(352, 507);
-            buttonExport.Location = new Point(518, 507);
-            panel13.Location = new Point(352, 457);
-            panel13.Visible = true;
+            buttonSetting.Location = new Point(352, 450);//450 480
+            buttonExport.Location = new Point(518, 450);
+            //panel13.Location = new Point(352, 434);
+            //panel13.Visible = true;
             millingstart.Visible = true;
             millingstop.Visible = false;
             chart_maximum.Enabled = false;
@@ -121,7 +121,6 @@ namespace Cuteffi_rebuild
             nidaq.StartDAQ(10000);
             Thread.Sleep(2000);
             nidaq.StopDAQ();
-
 
             indexProgramState = 2;
             statepanel(indexProgramState);
@@ -203,15 +202,15 @@ namespace Cuteffi_rebuild
             {
                 panelSetting.Visible = true;
                 panel11.Visible = false;
-                panel13.Visible = false;
+                //panel13.Visible = false;
                 indexPanelSetting = 1;
-                panelSetting.Location = new Point(352, 75);
+                panelSetting.Location = new Point(352, 80);
             }
             else
             {
                 panelSetting.Visible = false;
                 panel11.Visible = true;
-                panel13.Visible = true;
+                //panel13.Visible = true;
                 indexPanelSetting = 0;
                 //if (checkBox3.Checked == true && checkBox4.Checked ==false)
                 //{
@@ -390,9 +389,7 @@ namespace Cuteffi_rebuild
             if (string.IsNullOrEmpty(textBox4.Text)) { }
             else
             {
-                //if (checkBox4.Checked == true) { }
-                //else
-                //{
+                
                     if (Convert.ToDouble(textBox4.Text) > Convert.ToDouble(textBox1.Text))
                     {
                         textBox4.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) * 0.9);
@@ -416,7 +413,6 @@ namespace Cuteffi_rebuild
                             textBox2.Text = "0";
                         }
                     }
-                //}
             }
 
 
@@ -440,35 +436,7 @@ namespace Cuteffi_rebuild
             }
 
         }
-        ///
-        //public void panelupdate(double[] A, double[] G)
-        //{
-        //    label24.Text = Convert.ToString(A[0]);
-        //    label4.Text = Convert.ToString(A[1]);
-        //    label5.Text = Convert.ToString(A[2]);
-        //    label6.Text = Convert.ToString(A[3]);
-        //    double FeedPerFlute = Convert.ToDouble(textBox7.Text);
-        //    double Nunber_Flute = Convert.ToDouble(textBox8.Text);
-        //    label25.Text = Convert.ToString(A[0] * FeedPerFlute * Nunber_Flute);
-        //    label26.Text = Convert.ToString(A[1] * FeedPerFlute * Nunber_Flute);
-        //    label27.Text = Convert.ToString(A[2] * FeedPerFlute * Nunber_Flute);
-        //    label28.Text = Convert.ToString(A[3] * FeedPerFlute * Nunber_Flute);
-        //    label48.Text = Convert.ToString(Math.Round(G[0], 2, MidpointRounding.AwayFromZero));
-        //    label49.Text = Convert.ToString(Math.Round(G[1], 2, MidpointRounding.AwayFromZero));
-        //    label50.Text = Convert.ToString(Math.Round(G[2], 2, MidpointRounding.AwayFromZero));
-        //    label51.Text = Convert.ToString(Math.Round(G[3], 2, MidpointRounding.AwayFromZero));
-        //    indexProgramState = 2;
-        //    statepanel(indexProgramState);
-        //    millingstart.Visible = true;
-        //    millingstop.Visible = false;
-        //    monitorbutton.Enabled = true;
-        //    millingmodebutton.Enabled = true;
-        //    drillingmodebutton.Enabled = true;
-        //    buttonSetting.Enabled = true;
-        //    buttonExport.Enabled = true;
-        //    aGauge1.Value = 0;
-        //    Refresh();
-        //}
+        
         public void panelupdate2(double[] Alist, double[] Glist)
         {
             double FeedPerFlute = Convert.ToDouble(textBox7.Text);

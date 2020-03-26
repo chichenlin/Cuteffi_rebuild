@@ -48,7 +48,7 @@ namespace Cuteffi_rebuild
         public StreamWriter SW_RMSData;
         public StreamWriter SW_State;
         public StreamWriter SW_State2;
-        //public StreamWriter SW_RawData;
+        public StreamWriter SW_RawData;
         public string userpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         [STAThread]
@@ -77,14 +77,14 @@ namespace Cuteffi_rebuild
             if (CUTeffiForm.Panel1.Visible == true)
             {
                 SW_RMSData = new StreamWriter(userpath+"\\logdata\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RMSData.txt");
-                //SW_RawData = new StreamWriter(userpath + "\\logdata\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RawData.txt");
+                SW_RawData = new StreamWriter(userpath + "\\logdata\\" + DateTime.Now.ToString("yyyy - MM - dd HH - mm - ss") + "_" + "RawData.txt");
             }
             else
             {
                 SW_RMSData = new StreamWriter(userpath + "\\logdata\\RMSData.txt");
                 SW_State = new StreamWriter(userpath + "\\logdata\\State.txt");
                 SW_State2 = new StreamWriter(userpath + "\\logdata\\State2.txt");
-                //SW_RawData = new StreamWriter(userpath + "\\logdata\\RawData.txt");
+                SW_RawData = new StreamWriter(userpath + "\\logdata\\RawData.txt");
             }
             
 
@@ -121,7 +121,7 @@ namespace Cuteffi_rebuild
             SW_RMSData.Dispose();
             SW_State.Dispose();
             SW_State2.Dispose();
-            //SW_RawData.Dispose();
+            SW_RawData.Dispose();
 
             runningTask = null;
             myTask.Dispose();
@@ -398,18 +398,18 @@ namespace Cuteffi_rebuild
                     SW_RMSData.WriteLine(allrms1);
                 }
 
-                //for (int i = 0; i < d0.Length; i++)
-                //{
-                //    SW_RawData.Write(vecTime[i]);
-                //    SW_RawData.Write(",");
-                //    SW_RawData.Write(d0[i]);
-                //    SW_RawData.Write(",");
-                //    SW_RawData.WriteLine(d1[i]);
-                //    //SW_RawData.Write(",");
-                //    //SW_RawData.WriteLine(d2[i]);
-                    
-                //}
-                //
+                for (int i = 0; i < d0.Length; i++)
+                {
+                    SW_RawData.Write(vecTime[i]);
+                    SW_RawData.Write(",");
+                    SW_RawData.Write(d0[i]);
+                    SW_RawData.Write(",");
+                    SW_RawData.WriteLine(d1[i]);
+                    //SW_RawData.Write(",");
+                    //SW_RawData.WriteLine(d2[i]);
+
+                }
+
 
                 ////////////////////////////////////////////////////
                 //double[] varSPP = new double[vecSP.Length];
