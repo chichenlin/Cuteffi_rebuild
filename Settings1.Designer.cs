@@ -190,5 +190,17 @@ namespace Cuteffi_rebuild {
                 this["WarningThreshold"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public string WorkpieceZ {
+            get {
+                return ((string)(this["WorkpieceZ"]));
+            }
+            set {
+                this["WorkpieceZ"] = value;
+            }
+        }
     }
 }

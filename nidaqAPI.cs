@@ -50,6 +50,7 @@ namespace Cuteffi_rebuild
         public StreamWriter SW_State2;
         public StreamWriter SW_RawData;
         public string userpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        //public string userpath = "D:";
 
         [STAThread]
         public void StartDAQ(double a)
@@ -92,7 +93,7 @@ namespace Cuteffi_rebuild
             {
                 if (chan[i] == 1)
                 {
-                    aiChannel = myTask.AIChannels.CreateAccelerometerChannel("cDAQ3Mod1/ai" + Convert.ToString(i), "",
+                    aiChannel = myTask.AIChannels.CreateAccelerometerChannel("cDAQ1Mod1/ai" + Convert.ToString(i), "",
                         terminalConfiguration, Vmin, Vmax, sen, sensitivityUnits, excitationSource,
                         EVN, AIAccelerationUnits.G);
                     aiChannel.Coupling = inputCoupling;

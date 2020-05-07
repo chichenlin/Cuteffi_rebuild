@@ -44,5 +44,8 @@
     <Setting Name="WarningThreshold" Type="System.String" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="WorkpieceZ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

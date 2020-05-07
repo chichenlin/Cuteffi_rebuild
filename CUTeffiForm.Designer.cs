@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUTeffiForm));
-            System.Windows.Forms.AGaugeLabel aGaugeLabel4 = new System.Windows.Forms.AGaugeLabel();
-            System.Windows.Forms.AGaugeRange aGaugeRange10 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange11 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange12 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel5 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeRange aGaugeRange13 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange14 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange15 = new System.Windows.Forms.AGaugeRange();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonStop = new System.Windows.Forms.Button();
             this.label95 = new System.Windows.Forms.Label();
@@ -66,18 +66,19 @@
             this.monitorbutton = new System.Windows.Forms.Button();
             this.millingmodebutton = new System.Windows.Forms.Button();
             this.panelSetting = new System.Windows.Forms.Panel();
+            this.OZ = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.Measure_threshold = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.CX = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.OY = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cutting_coordinate = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.OX = new System.Windows.Forms.TextBox();
             this.label96 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -96,7 +97,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CZ = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -152,6 +153,12 @@
             this.label55 = new System.Windows.Forms.Label();
             this.openhistorydata_button = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.NZ = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.NX = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -274,131 +281,131 @@
             // time_chart
             // 
             this.time_chart.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisX.IsLabelAutoFit = false;
-            chartArea7.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.AxisX.LabelStyle.Format = "n1";
-            chartArea7.AxisX.Title = "Time(sec)";
-            chartArea7.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.AxisY.IsLabelAutoFit = false;
-            chartArea7.AxisY.LabelAutoFitMaxFontSize = 18;
-            chartArea7.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.AxisY.Title = "Vibration(g)";
-            chartArea7.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.InnerPlotPosition.Auto = false;
-            chartArea7.InnerPlotPosition.Height = 80F;
-            chartArea7.InnerPlotPosition.Width = 80F;
-            chartArea7.InnerPlotPosition.X = 10F;
-            chartArea7.InnerPlotPosition.Y = 2F;
-            chartArea7.Name = "ChartArea1";
-            this.time_chart.ChartAreas.Add(chartArea7);
-            legend10.Enabled = false;
-            legend10.Name = "Legend1";
-            legend11.Enabled = false;
-            legend11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend11.IsTextAutoFit = false;
-            legend11.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-            legend11.MaximumAutoSize = 20F;
-            legend11.Name = "Legend2";
-            legend11.Position.Auto = false;
-            legend11.Position.Height = 5F;
-            legend11.Position.Width = 55F;
-            legend11.Position.X = 25F;
-            legend11.Position.Y = 3F;
-            this.time_chart.Legends.Add(legend10);
-            this.time_chart.Legends.Add(legend11);
+            chartArea9.AxisX.IsLabelAutoFit = false;
+            chartArea9.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea9.AxisX.LabelStyle.Format = "n1";
+            chartArea9.AxisX.Title = "Time(sec)";
+            chartArea9.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea9.AxisY.IsLabelAutoFit = false;
+            chartArea9.AxisY.LabelAutoFitMaxFontSize = 18;
+            chartArea9.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea9.AxisY.Title = "Vibration(g)";
+            chartArea9.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea9.InnerPlotPosition.Auto = false;
+            chartArea9.InnerPlotPosition.Height = 80F;
+            chartArea9.InnerPlotPosition.Width = 80F;
+            chartArea9.InnerPlotPosition.X = 10F;
+            chartArea9.InnerPlotPosition.Y = 2F;
+            chartArea9.Name = "ChartArea1";
+            this.time_chart.ChartAreas.Add(chartArea9);
+            legend13.Enabled = false;
+            legend13.Name = "Legend1";
+            legend14.Enabled = false;
+            legend14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend14.IsTextAutoFit = false;
+            legend14.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
+            legend14.MaximumAutoSize = 20F;
+            legend14.Name = "Legend2";
+            legend14.Position.Auto = false;
+            legend14.Position.Height = 5F;
+            legend14.Position.Width = 55F;
+            legend14.Position.X = 25F;
+            legend14.Position.Y = 3F;
+            this.time_chart.Legends.Add(legend13);
+            this.time_chart.Legends.Add(legend14);
             this.time_chart.Location = new System.Drawing.Point(-1, 1);
             this.time_chart.Name = "time_chart";
             this.time_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series22.ChartArea = "ChartArea1";
-            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series22.Color = System.Drawing.Color.Blue;
-            series22.Legend = "Legend1";
-            series22.Name = "RMS";
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series23.IsValueShownAsLabel = true;
-            series23.Label = "Alarm";
-            series23.LabelForeColor = System.Drawing.Color.Red;
-            series23.Legend = "Legend2";
-            series23.MarkerColor = System.Drawing.Color.Red;
-            series23.Name = "Alarm";
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series24.Legend = "Legend2";
-            series24.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series24.Name = "Warning";
-            series25.ChartArea = "ChartArea1";
-            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series25.Legend = "Legend2";
-            series25.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series25.Name = "Max";
-            this.time_chart.Series.Add(series22);
-            this.time_chart.Series.Add(series23);
-            this.time_chart.Series.Add(series24);
-            this.time_chart.Series.Add(series25);
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series29.Color = System.Drawing.Color.Blue;
+            series29.Legend = "Legend1";
+            series29.Name = "RMS";
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series30.IsValueShownAsLabel = true;
+            series30.Label = "Alarm";
+            series30.LabelForeColor = System.Drawing.Color.Red;
+            series30.Legend = "Legend2";
+            series30.MarkerColor = System.Drawing.Color.Red;
+            series30.Name = "Alarm";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series31.Legend = "Legend2";
+            series31.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series31.Name = "Warning";
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series32.Legend = "Legend2";
+            series32.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series32.Name = "Max";
+            this.time_chart.Series.Add(series29);
+            this.time_chart.Series.Add(series30);
+            this.time_chart.Series.Add(series31);
+            this.time_chart.Series.Add(series32);
             this.time_chart.Size = new System.Drawing.Size(646, 308);
             this.time_chart.TabIndex = 14;
             this.time_chart.Text = "chart1";
-            title7.Name = "Title1";
-            this.time_chart.Titles.Add(title7);
+            title9.Name = "Title1";
+            this.time_chart.Titles.Add(title9);
             // 
             // alarm_chart
             // 
             this.alarm_chart.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.AxisX.IsLabelAutoFit = false;
-            chartArea8.AxisX.IsMarginVisible = false;
-            chartArea8.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisX.LabelStyle.Format = "n1";
-            chartArea8.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisY.IsLabelAutoFit = false;
-            chartArea8.AxisY.LabelAutoFitMaxFontSize = 18;
-            chartArea8.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisY.Title = "Time(sec)";
-            chartArea8.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.InnerPlotPosition.Auto = false;
-            chartArea8.InnerPlotPosition.Height = 80F;
-            chartArea8.InnerPlotPosition.Width = 80F;
-            chartArea8.InnerPlotPosition.X = 10F;
-            chartArea8.InnerPlotPosition.Y = 2F;
-            chartArea8.Name = "ChartArea1";
-            this.alarm_chart.ChartAreas.Add(chartArea8);
+            chartArea10.AxisX.IsLabelAutoFit = false;
+            chartArea10.AxisX.IsMarginVisible = false;
+            chartArea10.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisX.LabelStyle.Format = "n1";
+            chartArea10.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisY.IsLabelAutoFit = false;
+            chartArea10.AxisY.LabelAutoFitMaxFontSize = 18;
+            chartArea10.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisY.Title = "Time(sec)";
+            chartArea10.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.InnerPlotPosition.Auto = false;
+            chartArea10.InnerPlotPosition.Height = 80F;
+            chartArea10.InnerPlotPosition.Width = 80F;
+            chartArea10.InnerPlotPosition.X = 10F;
+            chartArea10.InnerPlotPosition.Y = 2F;
+            chartArea10.Name = "ChartArea1";
+            this.alarm_chart.ChartAreas.Add(chartArea10);
             this.alarm_chart.Enabled = false;
-            legend12.Enabled = false;
-            legend12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend12.IsTextAutoFit = false;
-            legend12.MaximumAutoSize = 20F;
-            legend12.Name = "Legend2";
-            this.alarm_chart.Legends.Add(legend12);
-            this.alarm_chart.Location = new System.Drawing.Point(3, 297);
+            legend15.Enabled = false;
+            legend15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend15.IsTextAutoFit = false;
+            legend15.MaximumAutoSize = 20F;
+            legend15.Name = "Legend2";
+            this.alarm_chart.Legends.Add(legend15);
+            this.alarm_chart.Location = new System.Drawing.Point(-1, 297);
             this.alarm_chart.Name = "alarm_chart";
             this.alarm_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series26.ChartArea = "ChartArea1";
-            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
-            series26.Color = System.Drawing.Color.Red;
-            series26.Legend = "Legend2";
-            series26.Name = "Alarm";
-            series26.YValuesPerPoint = 2;
-            series27.ChartArea = "ChartArea1";
-            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
-            series27.Color = System.Drawing.Color.Orange;
-            series27.Legend = "Legend2";
-            series27.Name = "Warning";
-            series27.YValuesPerPoint = 2;
-            series28.ChartArea = "ChartArea1";
-            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
-            series28.Color = System.Drawing.Color.Green;
-            series28.Legend = "Legend2";
-            series28.Name = "Safety";
-            series28.YValuesPerPoint = 2;
-            this.alarm_chart.Series.Add(series26);
-            this.alarm_chart.Series.Add(series27);
-            this.alarm_chart.Series.Add(series28);
+            series33.ChartArea = "ChartArea1";
+            series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series33.Color = System.Drawing.Color.Red;
+            series33.Legend = "Legend2";
+            series33.Name = "Alarm";
+            series33.YValuesPerPoint = 2;
+            series34.ChartArea = "ChartArea1";
+            series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series34.Color = System.Drawing.Color.Orange;
+            series34.Legend = "Legend2";
+            series34.Name = "Warning";
+            series34.YValuesPerPoint = 2;
+            series35.ChartArea = "ChartArea1";
+            series35.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series35.Color = System.Drawing.Color.Green;
+            series35.Legend = "Legend2";
+            series35.Name = "Safety";
+            series35.YValuesPerPoint = 2;
+            this.alarm_chart.Series.Add(series33);
+            this.alarm_chart.Series.Add(series34);
+            this.alarm_chart.Series.Add(series35);
             this.alarm_chart.Size = new System.Drawing.Size(646, 103);
             this.alarm_chart.TabIndex = 18;
             this.alarm_chart.Text = "chart1";
-            title8.Name = "Title1";
-            this.alarm_chart.Titles.Add(title8);
+            title10.Name = "Title1";
+            this.alarm_chart.Titles.Add(title10);
             // 
             // panel2
             // 
@@ -474,18 +481,19 @@
             // panelSetting
             // 
             this.panelSetting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSetting.Controls.Add(this.OZ);
             this.panelSetting.Controls.Add(this.button1);
             this.panelSetting.Controls.Add(this.button2);
             this.panelSetting.Controls.Add(this.label17);
             this.panelSetting.Controls.Add(this.Measure_threshold);
             this.panelSetting.Controls.Add(this.label54);
-            this.panelSetting.Controls.Add(this.textBox16);
+            this.panelSetting.Controls.Add(this.CX);
             this.panelSetting.Controls.Add(this.label53);
-            this.panelSetting.Controls.Add(this.textBox15);
+            this.panelSetting.Controls.Add(this.OY);
             this.panelSetting.Controls.Add(this.checkBox2);
             this.panelSetting.Controls.Add(this.panel7);
             this.panelSetting.Controls.Add(this.cutting_coordinate);
-            this.panelSetting.Controls.Add(this.textBox14);
+            this.panelSetting.Controls.Add(this.OX);
             this.panelSetting.Controls.Add(this.label96);
             this.panelSetting.Controls.Add(this.label30);
             this.panelSetting.Controls.Add(this.checkBox1);
@@ -504,7 +512,7 @@
             this.panelSetting.Controls.Add(this.label9);
             this.panelSetting.Controls.Add(this.label11);
             this.panelSetting.Controls.Add(this.textBox2);
-            this.panelSetting.Controls.Add(this.textBox3);
+            this.panelSetting.Controls.Add(this.CZ);
             this.panelSetting.Controls.Add(this.textBox1);
             this.panelSetting.Controls.Add(this.textBox4);
             this.panelSetting.Controls.Add(this.label2);
@@ -516,6 +524,15 @@
             this.panelSetting.Size = new System.Drawing.Size(336, 370);
             this.panelSetting.TabIndex = 4;
             this.panelSetting.Visible = false;
+            // 
+            // OZ
+            // 
+            this.OZ.Location = new System.Drawing.Point(271, 177);
+            this.OZ.Name = "OZ";
+            this.OZ.Size = new System.Drawing.Size(59, 27);
+            this.OZ.TabIndex = 39;
+            this.OZ.Text = "64";
+            this.OZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
             // 
@@ -529,12 +546,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(167, 319);
+            this.button2.Location = new System.Drawing.Point(234, 286);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(168, 37);
+            this.button2.Size = new System.Drawing.Size(99, 31);
             this.button2.TabIndex = 38;
             this.button2.Text = "工件示意圖";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label17
             // 
@@ -566,15 +584,16 @@
             this.label54.TabIndex = 35;
             this.label54.Text = "mm";
             // 
-            // textBox16
+            // CX
             // 
-            this.textBox16.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox16.Location = new System.Drawing.Point(137, 263);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(59, 27);
-            this.textBox16.TabIndex = 34;
-            this.textBox16.Text = "2";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CX.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.CX.Location = new System.Drawing.Point(137, 263);
+            this.CX.Name = "CX";
+            this.CX.Size = new System.Drawing.Size(59, 27);
+            this.CX.TabIndex = 34;
+            this.CX.Text = "2";
+            this.CX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CX.TextChanged += new System.EventHandler(this.CX_TextChanged);
             // 
             // label53
             // 
@@ -586,15 +605,15 @@
             this.label53.TabIndex = 33;
             this.label53.Text = "切寬";
             // 
-            // textBox15
+            // OY
             // 
-            this.textBox15.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox15.Location = new System.Drawing.Point(205, 177);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(59, 27);
-            this.textBox15.TabIndex = 32;
-            this.textBox15.Text = "64";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.OY.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.OY.Location = new System.Drawing.Point(204, 177);
+            this.OY.Name = "OY";
+            this.OY.Size = new System.Drawing.Size(59, 27);
+            this.OY.TabIndex = 32;
+            this.OY.Text = "64";
+            this.OY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // checkBox2
             // 
@@ -626,15 +645,15 @@
             this.cutting_coordinate.Text = "54";
             this.cutting_coordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox14
+            // OX
             // 
-            this.textBox14.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox14.Location = new System.Drawing.Point(137, 177);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(59, 27);
-            this.textBox14.TabIndex = 32;
-            this.textBox14.Text = "64";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.OX.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.OX.Location = new System.Drawing.Point(137, 177);
+            this.OX.Name = "OX";
+            this.OX.Size = new System.Drawing.Size(59, 27);
+            this.OX.TabIndex = 32;
+            this.OX.Text = "64";
+            this.OX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label96
             // 
@@ -819,15 +838,16 @@
             this.textBox2.Size = new System.Drawing.Size(59, 27);
             this.textBox2.TabIndex = 9;
             // 
-            // textBox3
+            // CZ
             // 
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox3.Location = new System.Drawing.Point(137, 235);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(59, 27);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Text = "0.5";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CZ.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.CZ.Location = new System.Drawing.Point(137, 235);
+            this.CZ.Name = "CZ";
+            this.CZ.Size = new System.Drawing.Size(59, 27);
+            this.CZ.TabIndex = 10;
+            this.CZ.Text = "0.5";
+            this.CZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CZ.TextChanged += new System.EventHandler(this.CZ_TextChanged);
             // 
             // textBox1
             // 
@@ -948,36 +968,36 @@
             this.aGauge1.BaseArcWidth = 5;
             this.aGauge1.Center = new System.Drawing.Point(172, 215);
             this.aGauge1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            aGaugeLabel4.Color = System.Drawing.SystemColors.WindowText;
-            aGaugeLabel4.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            aGaugeLabel4.Name = "Vibration (g)";
-            aGaugeLabel4.Position = new System.Drawing.Point(115, 300);
-            aGaugeLabel4.Text = "Vibration (g)";
-            this.aGauge1.GaugeLabels.Add(aGaugeLabel4);
-            aGaugeRange10.Color = System.Drawing.Color.Green;
-            aGaugeRange10.EndValue = 2F;
-            aGaugeRange10.InnerRadius = 130;
-            aGaugeRange10.InRange = false;
-            aGaugeRange10.Name = "GaugeRange1";
-            aGaugeRange10.OuterRadius = 150;
-            aGaugeRange10.StartValue = 0F;
-            aGaugeRange11.Color = System.Drawing.Color.Orange;
-            aGaugeRange11.EndValue = 4F;
-            aGaugeRange11.InnerRadius = 130;
-            aGaugeRange11.InRange = false;
-            aGaugeRange11.Name = "GaugeRange2";
-            aGaugeRange11.OuterRadius = 150;
-            aGaugeRange11.StartValue = 2F;
-            aGaugeRange12.Color = System.Drawing.Color.Red;
-            aGaugeRange12.EndValue = 5F;
-            aGaugeRange12.InnerRadius = 130;
-            aGaugeRange12.InRange = false;
-            aGaugeRange12.Name = "GaugeRange3";
-            aGaugeRange12.OuterRadius = 150;
-            aGaugeRange12.StartValue = 4F;
-            this.aGauge1.GaugeRanges.Add(aGaugeRange10);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange11);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange12);
+            aGaugeLabel5.Color = System.Drawing.SystemColors.WindowText;
+            aGaugeLabel5.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            aGaugeLabel5.Name = "Vibration (g)";
+            aGaugeLabel5.Position = new System.Drawing.Point(115, 300);
+            aGaugeLabel5.Text = "Vibration (g)";
+            this.aGauge1.GaugeLabels.Add(aGaugeLabel5);
+            aGaugeRange13.Color = System.Drawing.Color.Green;
+            aGaugeRange13.EndValue = 2F;
+            aGaugeRange13.InnerRadius = 130;
+            aGaugeRange13.InRange = false;
+            aGaugeRange13.Name = "GaugeRange1";
+            aGaugeRange13.OuterRadius = 150;
+            aGaugeRange13.StartValue = 0F;
+            aGaugeRange14.Color = System.Drawing.Color.Orange;
+            aGaugeRange14.EndValue = 4F;
+            aGaugeRange14.InnerRadius = 130;
+            aGaugeRange14.InRange = false;
+            aGaugeRange14.Name = "GaugeRange2";
+            aGaugeRange14.OuterRadius = 150;
+            aGaugeRange14.StartValue = 2F;
+            aGaugeRange15.Color = System.Drawing.Color.Red;
+            aGaugeRange15.EndValue = 5F;
+            aGaugeRange15.InnerRadius = 130;
+            aGaugeRange15.InRange = false;
+            aGaugeRange15.Name = "GaugeRange3";
+            aGaugeRange15.OuterRadius = 150;
+            aGaugeRange15.StartValue = 4F;
+            this.aGauge1.GaugeRanges.Add(aGaugeRange13);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange14);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange15);
             this.aGauge1.Location = new System.Drawing.Point(3, 30);
             this.aGauge1.MaxValue = 5F;
             this.aGauge1.MinValue = 0F;
@@ -1532,30 +1552,102 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.NZ);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.NX);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(703, 559);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 482);
+            this.panel4.Size = new System.Drawing.Size(352, 420);
             this.panel4.TabIndex = 27;
+            this.panel4.Visible = false;
+            // 
+            // NZ
+            // 
+            this.NZ.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.NZ.Location = new System.Drawing.Point(137, 333);
+            this.NZ.Name = "NZ";
+            this.NZ.Size = new System.Drawing.Size(100, 27);
+            this.NZ.TabIndex = 4;
+            this.NZ.Text = "0";
+            this.NZ.TextChanged += new System.EventHandler(this.NZ_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(133, 312);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 19);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "測試加工點Z";
+            // 
+            // NX
+            // 
+            this.NX.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.NX.Location = new System.Drawing.Point(13, 333);
+            this.NX.Name = "NX";
+            this.NX.Size = new System.Drawing.Size(90, 27);
+            this.NX.TabIndex = 4;
+            this.NX.Text = "0";
+            this.NX.TextChanged += new System.EventHandler(this.NX_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(9, 311);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "測試加工點X";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(137, 366);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 49);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Reset";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(13, 366);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 49);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "測試工件切削預覽";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 242);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 159);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(344, 235);
+            this.pictureBox4.Size = new System.Drawing.Size(340, 150);
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox4_Paint);
+            this.pictureBox4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseUp);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(3, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(344, 235);
+            this.pictureBox3.Size = new System.Drawing.Size(340, 150);
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox3_Paint);
             // 
             // CUTeffiForm
             // 
@@ -1598,6 +1690,7 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -1626,7 +1719,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox CZ;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
@@ -1650,10 +1743,10 @@
         private System.Windows.Forms.Button millingstop;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox CX;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox OY;
+        private System.Windows.Forms.TextBox OX;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.Label label91;
@@ -1712,6 +1805,13 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox OZ;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox NZ;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox NX;
+        private System.Windows.Forms.Label label1;
     }
 }
 
